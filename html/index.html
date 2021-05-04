@@ -24,7 +24,6 @@
     <link rel="manifest" href="/logo/Icon/site.webmanifest">
     <link rel="icon" type="image/png" sizes="192x192" href="/logo/Icon/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/logo/Icon/android-chrome-512x512.png">
-    
 
 
 </head>
@@ -152,6 +151,7 @@
                                 </div>
                             </div>
                             <div class="col-auto header-fixed-col">
+                                <!-- Begin logo -->
                                 <!-- Begin logo -->
                                 <a href="index.html" class="logo logo-ico-widht-text" title="Indikator">
                                     <img class="lazy logo-ico" src="/logo/indikator-logo.png" alt=""
@@ -307,28 +307,42 @@
 
 
             <!-- Begin intro -->
-            <div class="section-bg intro">
-                <div class="intro-slider flickity-dots-absolute flickity-enabled is-draggable is-fade"
-                    data-flickity="{ &quot;bgLazyLoad&quot;: 1, &quot;bgLazyLoad&quot;: true, &quot;fade&quot;: true, &quot;prevNextButtons&quot;: false }"
-                    tabindex="0">
+            <div class="container">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
 
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="/logo/indikator-logo.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
 
+      <div class="item">
+        <img src="/logo/indikator-logo.jpg" alt="Chicago" style="width:100%;">
+      </div>
+    
+      <div class="item">
+        <img src="/logo/indikator-logo.jpg" alt="New york" style="width:100%;">
+      </div>
+    </div>
 
-                    <div class="flickity-viewport" style="height: 640px; touch-action: pan-y;">
-                        <div class="flickity-slider" style="left: 0px; transform: translateX(50%);">
-                            <div class="intro-item is-selected flickity-bg-lazyloaded"
-                                style="position: absolute; left: -50%; opacity: 1; background-image: url(/logo/indikator-logo.jpg);">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <ol class="flickity-page-dots">
-                        <li class="dot is-selected" aria-label="Page dot 1" aria-current="step"></li>
-                        <li class="dot" aria-label="Page dot 2"></li>
-                        <li class="dot" aria-label="Page dot 3"></li>
-                    </ol>
-                </div>
-            </div><!-- End intro -->
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+<!-- End intro -->
 
 
 
@@ -525,9 +539,9 @@
                                 <ul class="footer-social-links">
                                     <li>
                                         <a href="https://www.facebook.com/" title="Facebook">
-                                            <span class="icon-style">
-                                                <i class="fab fa-facebook-square"></i>
-                                            </span>
+                                           <span class="icon-style">
+                                            <i class="fab fa-facebook-square"></i>
+                                           </span>
                                         </a>
                                     </li>
                                     <li>
@@ -564,6 +578,8 @@
                                                 data-title="About Us"><span>Haqqımızda</span></a></li>
                                         <li><a href="products.html" class="hover-link"
                                                 data-title="Services"><span>Məhsullar</span></a></li>
+                                        <!-- <li><a href="https://template.wbs-dvp.pro/news.html" class="hover-link"
+                                                data-title="News"><span>Shop</span></a></li> -->
                                         <li><a href="news.html" class="hover-link"
                                                 data-title="Contact Us"><span>Xəbərlər</span></a></li>
                                         <li><a href="contact.html" class="hover-link"
@@ -613,7 +629,7 @@
                                     <li>
                                         <i class="material-icons md-22 footer-contact-email">email</i>
                                         <div class="footer-contact-info">
-                                            <a href="indikator.az@gmail.com">indikator.az@gmail.com</a>
+                                            <a href="mailto:indikator.az@gmail.com">indikator.az@gmail.com</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -648,11 +664,14 @@
                 </div>
             </div>
         </footer><!-- End footer -->
-        <script src="/js/jquery_003.js"></script>
+         <script src="/js/jquery_003.js"></script>
         <script src="/js/lozad.js"></script>
-        <script src="/js/custom.js"></script>
+        <script src="/js/custom.js"></script> -->
         <div class="mf-bg"></div>
         <div class="btn-top"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
 </body>
 
 </html>
