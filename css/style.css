@@ -6154,11 +6154,12 @@ body.mob-main-mnu-open .mob-main-mnu {
 
 .footer-company-desc {
     margin-bottom: 2rem;
-    text-align: justify;
 }
-
 .footer-company-desc p {
     margin-bottom: 0;
+}
+.img{
+    background-size: cover;
 }
 
 .footer-social-links {
