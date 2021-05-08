@@ -8,7 +8,7 @@
     --line-height: 1.6;
     --heading-line-height: 1.3;
     --main-color: #e31e25;
-    --el-gradient1: #2876e2;
+    --el-gradient1: #e32929;
     --el-gradient2: #3f8efc;
     --primary-color: #ffffff;
     --primary-bg-color: #F0F4F8;
@@ -1860,7 +1860,73 @@ textarea {
     width: 22px;
     height: 22px;
 }
-
+/* bRRRR */
+@-webkit-keyframes scroll {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(calc(-250px * 7));
+              transform: translateX(calc(-250px * 7));
+    }
+  }
+  
+  @keyframes scroll {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(calc(-250px * 7));
+              transform: translateX(calc(-250px * 7));
+    }
+  }
+  .slider {
+    background: pr;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+    height: 100px;
+    margin: 0px;
+    overflow: hidden;
+    position: relative;
+    width: 960px;
+    margin-bottom: 50px;
+  }
+  .slider::before, .slider::after {
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+  }
+  .slider::after {
+    right: 0;
+    top: 0;
+    -webkit-transform: rotateZ(180deg);
+            transform: rotateZ(180deg);
+  }
+  .slider::before {
+    left: 0;
+    top: 0;
+  }
+  .slider .slide-track {
+    -webkit-animation: scroll 60s linear infinite;
+            animation: scroll 60s linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+  }
+  .slider .slide {
+    height: 100px;
+    width: 250px;
+  }
+  .body2 {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+  }
+  /* brrr */
 .link-facebook {
     background-color: #29487d;
 }
