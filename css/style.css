@@ -1861,27 +1861,93 @@ textarea {
     height: 22px;
 }
 /* bRRRR */
-@-webkit-keyframes scroll {
-    0% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-    }
-    100% {
-      -webkit-transform: translateX(calc(-250px * 7));
-              transform: translateX(calc(-250px * 7));
-    }
+.slider {
+    height: 150px;
+    position: relative;
+    width: 100%;
+  
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+  .slider::before,
+  .slider::after{
+    position:absolute;
+    background-image:linear-gradient(to right,rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+    content:'';
+    height:100%;width:25%;
+    z-index:2;pointer-events:none;
+  }
+  .slider::before{
+    left:0;
+    top:0;
+  }
+  .slider::after{
+    right:0;
+    top:0;
+    transform:rotateZ(180deg);
+  }
+  
+  /*  IMPORTANT CODE BELOW */
+  
+  .slide-track {
+    width: calc(150px * 30);
+    display: flex;
+    animation: scroll 60s linear infinite;
+    justify-content: space-between;
+  }
+  
+  
+  
+  .slide-logo {
+    width: 250px;
+    height: 100px;
+  
+    display: grid;
+    place-items: center;
+    transition:0.5s;
+  }
+  .slide-logo:hover{
+    transform:scale(0.8)
   }
   
   @keyframes scroll {
     0% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
+      transform: translateX(0px);
     }
     100% {
-      -webkit-transform: translateX(calc(-250px * 7));
-              transform: translateX(calc(-250px * 7));
+      transform: translateX(calc(-150px * 20));
     }
   }
+  
+ 
+  
+  @media screen and (max-width: 768px) {
+    .slide-track {
+      width: calc(80px * 20);
+    }
+  
+    .slide-track2 {
+      width: calc(80px * 15);
+    }
+  
+    .slide {
+      width: 80px;
+    }
+  
+    @keyframes scroll {
+      0% {
+        transform: translateX(0px);
+      }
+      100% {
+        transform: translateX(calc(-80px * 10));
+      }
+    }
+  
+   
+  }
+
+ 
   .slider {
     background: pr;
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
@@ -1910,12 +1976,7 @@ textarea {
     left: 0;
     top: 0;
   }
-  .slider .slide-track {
-    -webkit-animation: scroll 60s linear infinite;
-            animation: scroll 60s linear infinite;
-    display: flex;
-    width: calc(250px * 14);
-  }
+  
   .slider .slide {
     height: 100px;
     width: 250px;
@@ -1926,7 +1987,6 @@ textarea {
     height: 100vh;
     justify-content: center;
   }
-  /* brrr */
 .link-facebook {
     background-color: #29487d;
 }
