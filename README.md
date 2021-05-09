@@ -1,6 +1,6 @@
 # PragmatechFoundationProject
 # Layihə haqqında qısa məlumat
-## Bu layihə freelance tapşırıq olaraq götürdüyüme e-commerce  tipində bir layihədir.
+## Bu layihə freelance tapşırıq olaraq götürdüyüm e-commerce  tipində bir layihədir.
 ### Layihədə aşağıdakı texnologiyalardan istifadə etmişəm:
 - Frontend:
   - HTML 5
