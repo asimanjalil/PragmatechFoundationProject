@@ -1,3 +1,8 @@
+from run import app
+import os
+from flask import render_template,redirect,request
+from werkzeug.utils import secure_filename
+
 @app.route('/admin/news/info',methods=['GET','POST'])
 def news_info():
     from run import db
