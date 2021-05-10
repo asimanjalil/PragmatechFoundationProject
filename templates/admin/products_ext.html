@@ -1,7 +1,7 @@
 {% extends "admin/base.html" %}{% block content %}
 
 <h3 class="my-2">Məhsulun məlumatını qeyd et</h3>
-<form action="/admin/products"method='POST' enctype="multipart/form-data">
+<form action="/admin/products/ext"method='POST' enctype="multipart/form-data">
     <input type="text" name="product_list_title" class="form-control my-2" placeholder="Məhsulun listinin kateqoriyası">
     <input type="text" name="product_info_title" class="form-control my-2" placeholder="Məhsulun başlığı">
     <input type="file" name="product_info_img" class="form-control my-2" placeholder="Məhsulun şəkli">

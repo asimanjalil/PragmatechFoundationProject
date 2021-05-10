@@ -8,10 +8,10 @@ def gallery_index():
         file=request.files['post_img']
         filename=file.filename
         file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
-        post=Gallery_img(
+        posts=Gallery_img(
             gallery_img=filename
         )
         db.session.add(post)
         db.session.commit()
         return redirect('/admin/gallery')
-    return render_template('admin/gallery.html')
+    return render_template('admin/gallery.html',posts=posts)

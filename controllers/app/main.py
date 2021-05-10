@@ -29,7 +29,7 @@ def choose_index():
     from models import Post
     posts=Post.query.all()
     return render_template('app/choose_oil.html',posts=posts)
-
+    
 @app.route('/news')
 def news_index():
     from models import Post
@@ -38,9 +38,9 @@ def news_index():
 
 @app.route('/news/about')
 def news_about_index():
-    from models import Post
-    posts=Post.query.all()
-    return render_template('app/news.about.html',posts=posts)
+    from models import Post_info
+    posts=Post_info.query.all()
+    return render_template('app/news_about.html',posts=posts)
 
 @app.route('/gallery')
 def gallery_main_index():

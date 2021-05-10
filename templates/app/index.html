@@ -41,7 +41,7 @@
                 <div class="mob-main-mnu-content">
                     <ul class="mob-main-mnu-list">
                         <li class="">
-                            <a href="about.html">Haqqımızda</a>
+                            <a href="about">Haqqımızda</a>
 
                             <div class="mob-main-submnu" style="display: none;">
                                 <div class="mob-main-submnu-item">
@@ -50,7 +50,7 @@
                             </div>
                         </li>
                         <li class="">
-                            <a href="gallery.html">Qalereya</a>
+                            <a href="gallery">Qalereya</a>
 
                             <div class="mob-main-submnu" style="display: none;">
                                 <div class="mob-main-submnu-item">
@@ -59,7 +59,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="products.html">Məhsullar</a>
+                            <a href="products">Məhsullar</a>
                             <div class="mmm-btn"><i class="material-icons md-24">expand_more</i></div>
                             <div class="mob-main-submnu">
                                 <div class="mob-main-submnu-item">
@@ -80,15 +80,15 @@
                             </div>
                         </li>
                         <li>
-                            <a href="choose_oil.html">Öz yağını seç</a>
+                            <a href="choose">Öz yağını seç</a>
 
                         </li>
                         <li>
-                            <a href="news.html">Xəbərlər</a>
+                            <a href="news">Xəbərlər</a>
 
                         </li>
                         <li>
-                            <a href="contact.html">Əlaqə</a>
+                            <a href="contact">Əlaqə</a>
 
                         </li>
                     </ul>
@@ -166,7 +166,7 @@
                             <div class="col-auto header-fixed-col">
                                 <!-- Begin logo -->
                                 <!-- Begin logo -->
-                                <a href="index.html" class="logo logo-ico-widht-text" title="Indikator">
+                                <a href="/" class="logo logo-ico-widht-text" title="Indikator">
                                     <img class="lazy logo-ico" src="/static/app//logo/indikator-logo.png" alt="" data-loaded="true"
                                         width="36" height="35"
                                         style="height: 60px;width: 160px;margin-left: 10px; ">
@@ -179,13 +179,13 @@
                                         <nav class="main-mnu">
                                             <ul class="main-mnu-list">
                                                 <li class="main-mnu-item-has-child">
-                                                    <a href="about.html" data-title="Haqqımızda" class="uppercase">
+                                                    <a href="about" data-title="Haqqımızda" class="uppercase">
                                                         <span>Haqqımızda</span>
                                                     </a>
                                                 </li>
                                                 
                                                 <li class="main-mnu-item-has-child">
-                                                    <a href="products.html" data-title="Məhsullar">
+                                                    <a href="products" data-title="Məhsullar">
                                                         <span>Məhsullar</span>
                                                         <i class="fas fa-chevron-down"></i>
                                                     </a>
@@ -208,22 +208,22 @@
                                                     </ul>
                                                 </li>
                                                 <li class="main-mnu-item-has-child open main-mnu-item-mega-mnu">
-                                                    <a href="choose_oil.html" data-title="Öz yağını seç">
+                                                    <a href="choose" data-title="Öz yağını seç">
                                                         <span>Öz yağını seç</span>
                                                     </a>
                                                 </li>
                                                 <li class="main-mnu-item-has-child">
-                                                    <a href="news.html" data-title="Xəbərlər">
+                                                    <a href="news" data-title="Xəbərlər">
                                                         <span>Xəbərlər</span>
                                                     </a>
                                                     <li class="main-mnu-item-has-child">
-                                                        <a href="gallery.html" data-title="Qalereya" class="uppercase">
+                                                        <a href="gallery" data-title="Qalereya" class="uppercase">
                                                             <span>Qalereya</span>
                                                         </a>
                                                     </li>
                                                 </li>
                                                 <li class="main-mnu-item-has-child">
-                                                    <a href="contact.html" data-title="Əlaqə">
+                                                    <a href="contact" data-title="Əlaqə">
                                                         <span>Əlaqə</span>
                                                     </a>
                                                 </li>
@@ -466,57 +466,26 @@
                                 <h2>Ən son yeniliklər</h2>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12 item">
-                            <!-- Begin news item -->
-                            <article class="news-item item-style">
-                                <a href="№" class="news-item-img">
-                                    <img data-src="" class="lazy" src="/static/app//logo/indikator-logo.jpg" alt="">
-                                </a>
-                                <div class="news-item-info">
-                                    <div class="news-item-date">11/04/2021</div>
-                                    <h4 class="news-item-title item-heading">
-                                        <a href="№" title="Benefits Of Async/Await">İndikatorun inkişafı</a>
-                                    </h4>
-                                    <div class="news-item-desc">
-                                        <p>Asynchronous functions are a good and bad thing in JavaScript.</p>
-                                    </div>
-                                </div>
-                            </article><!-- End news item -->
+                        {% for post_info in Post_info %}
+            <div class="col-lg-4 col-md-6 col-12 item">
+                <!-- Begin news item -->
+                <article class="news-item item-style">
+                    <a href="news/about" class="news-item-img">
+                        <img class="lazy" src="/static/uploads/{{post.post_img}}" alt=""
+                            data-loaded="true">
+                    </a>
+                    <div class="news-item-info">
+                        <div class="news-item-date">{{post.post_time}}</div>
+                        <h4 class="news-item-title item-heading">
+                            <a href="news/about" title="{{post.post_title}}">{{post.post_title}}</a>
+                        </h4>
+                        <div class="news-item-desc">
+                            <p>{{post.post_info}}</p>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12 item">
-                            <!-- Begin news item -->
-                            <article class="news-item item-style">
-                                <a href="№" class="news-item-img">
-                                    <img data-src="" class="lazy" src="/static/app//logo/indikator-logo.jpg" alt="">
-                                </a>
-                                <div class="news-item-info">
-                                    <div class="news-item-date">05/01/2021</div>
-                                    <h4 class="news-item-title item-heading">
-                                        <a href="№" title="Key Considerations Of IPaaS">Key Considerations Of IPaaS</a>
-                                    </h4>
-                                    <div class="news-item-desc">
-                                        <p>Digital transformation requires cloud appropriate adoption</p>
-                                    </div>
-                                </div>
-                            </article><!-- End news item -->
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-12 item">
-                            <!-- Begin news item -->
-                            <article class="news-item item-style">
-                                <a href="#" class="news-item-img">
-                                    <img data-src="" class="lazy" src="/static/app//logo/indikator-logo.jpg" alt="">
-                                </a>
-                                <div class="news-item-info">
-                                    <div class="news-item-date">01/01/2021</div>
-                                    <h4 class="news-item-title item-heading">
-                                        <a href="#" title="Hibernate Query Language">Hibernate Query Language</a>
-                                    </h4>
-                                    <div class="news-item-desc">
-                                        <p>In this tutorial, we will discuss the Hibernate Query Language. </p>
-                                    </div>
-                                </div>
-                            </article><!-- End news item -->
-                        </div>
+                    </div>
+                </article><!-- End news item -->
+            </div>
+            {% endfor %}
                         <div class="col-12">
                             <div class="section-btns justify-content-center">
                                 <a href="news.html" class="btn btn-with-icon btn-w240 ripple">

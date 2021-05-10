@@ -8,6 +8,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
+                            {% for post_info in post_details %}
                             <ul class="bread-crumbs-list">
                                 <li>
                                     <a href="index.html">Ana səhifə</a>
@@ -17,8 +18,7 @@
                                     <a href="news.html">Xəbərlər</a>
                                     <i class="material-icons md-18">chevron_right</i>
                                 </li>
-                                <li><a href="#!">TƏBİB-dən əhaliyə növbəti xəbərdarlıq: Karantin davam edir,
-                                        qapanmalar ola bilər - VİDEO</a></li>
+                                <li><a href="#!">{{post_info.post_list_title}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -27,42 +27,23 @@
             <div class="col-lg-9 col-12 content-item">
                 <div class="news-post">
                     <header class="news-post-header">
-                        <h1 class="news-post-title">TƏBİB-dən əhaliyə növbəti xəbərdarlıq: Karantin davam
-                            edir, qapanmalar ola bilər - VİDEO</h1>
+                        <h1 class="news-post-title">{{post_info.post_info_title}}</h1>
                         <div class="news-post-meta">
                             <div class="news-post-meta-item">
                                 <i class="material-icons md-22">access_time</i>
-                                <span>Jan 23, 2021</span>
+                                <span>{{post_info.post_info_time}}</span>
                             </div>
                         </div>
                         <div class="news-post-img img-style">
-                            <img class="lazy" src="/logo/indikator-logo.jpg" alt="" data-loaded="true">
+                            <img class="lazy" src="/static/uploads/{{post_info.post_info_img}}" alt="" data-loaded="true">
                         </div>
                     </header>
                     <article class="news-post-article content">
-                        <p>İndikator Avto 2018-ci ildə ilk olaraq avtomobil ehtiyat hissələrinin satışı ilə
-                            fəaliyyətə başlayıb. Mercedes Benz, Hyundai, Kia, Toyota, Nissan kimi markaların
-                            ehtiyat hissələrinin satışı həyata keçirilir. 1 il sonra isə eyni zamanda servis
-                            xidməti də təskil edilmişdir. Hazırda servisimizdə çilingər, mühərrikçi,
-                            elektrik fəalliyyət göstərməkdədir. Qısa zamanda bir neçə əlavə xidmət də təşkil
-                            olunacaq. Servisimizdə ayrı olaraq mühərrik yağlarının dəyişdirilməsi üçün
-                            xüsusi mərkəz də var. Əsas prinsipimiz müştərilərə hər zaman keyfiyyətli
-                            məhsullar təqdim etmək və keyfiyyətli xidmət göstərməkdir.</p>
-                        <p>İndikator Avto 2018-ci ildə ilk olaraq avtomobil ehtiyat hissələrinin satışı ilə
-                            fəaliyyətə başlayıb. Mercedes Benz, Hyundai, Kia, Toyota, Nissan kimi markaların
-                            ehtiyat hissələrinin satışı həyata keçirilir. 1 il sonra isə eyni zamanda servis
-                            xidməti də təskil edilmişdir. Hazırda servisimizdə çilingər, mühərrikçi,
-                            elektrik fəalliyyət göstərməkdədir. Qısa zamanda bir neçə əlavə xidmət də təşkil
-                            olunacaq. Servisimizdə ayrı olaraq mühərrik yağlarının dəyişdirilməsi üçün
-                            xüsusi mərkəz də var. Əsas prinsipimiz müştərilərə hər zaman keyfiyyətli
-                            məhsullar təqdim etmək və keyfiyyətli xidmət göstərməkdir.</p>
-                        <blockquote>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur,
-                            neque aliquid. Laboriosam in sit quasi, velit corporis atque dolore consectetur
-                            molestiae debitis id sint necessitatibus iusto perspiciatis delectus sequi
-                            fugiat?</blockquote>
+                        <p>{{post_info.post_info_description}}</p>
 
                     </article>
-                </div>
+               
+                            {% endfor %} </div>
                 <div class="page-sections">
                     <section class="section">
                         <div class="row items">
