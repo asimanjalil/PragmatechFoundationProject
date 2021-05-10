@@ -1,0 +1,60 @@
+{% extends "app/base.html" %}
+
+
+{% block content %}
+<!-- Begin latest news -->
+<section class="section section-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading heading-center">
+                    <div class="section-subheading"></div>
+                    <h2>Xəbərlər</h2>
+                </div>
+            </div>
+            
+            {% for post in posts %}
+            <div class="col-lg-4 col-md-6 col-12 item">
+                <!-- Begin news item -->
+                <article class="news-item item-style">
+                    <a href="news_about.html" class="news-item-img">
+                        <img class="lazy" src="/static/uploads/{{post.post_img}}" alt=""
+                            data-loaded="true">
+                    </a>
+                    <div class="news-item-info">
+                        <div class="news-item-date">{{post.post_time}}</div>
+                        <h4 class="news-item-title item-heading">
+                            <a href="news_about.html" title="{{post.post_title}}">{{post.post_title}}</a>
+                        </h4>
+                        <div class="news-item-desc">
+                            <p>{{post.post_info}}</p>
+                        </div>
+                    </div>
+                </article><!-- End news item -->
+            </div>
+            
+            {% endfor %}
+            <div class="col-12">
+                <!-- Begin pagination -->
+                <nav class="pagination">
+                    <ul class="pagination-list">
+                        <li
+                            class="pagination-item-arrow pagination-item-arrow-prev pagination-item-disabled">
+                            <a href="#!"><i class="material-icons md-24">chevron_left</i></a>
+                        </li>
+                        <li class="active"><a href="#!">1</a></li>
+                        <li><a href="#!">2</a></li>
+                        <li><a href="#!">3</a></li>
+                        <li><a href="#!">4</a></li>
+                        <li class="pagination-item-arrow pagination-item-arrow-next"><a href="#!"><i
+                                    class="material-icons md-24">chevron_right</i></a></li>
+                    </ul>
+                </nav><!-- End pagination -->
+            </div>
+        </div>
+</section><!-- End latest news -->
+
+</div>
+{% endblock %}
+
+        

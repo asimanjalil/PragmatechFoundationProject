@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %} {% block content %}
+<h3 class="my-2">Xəbər əlavə et</h3>
+<form action="/admin/news"method='POST' enctype="multipart/form-data">
+    <input type="text" name="post_title" class="form-control my-2" placeholder="Xəbər başlığı">
+    <input type="date" name="post_time" class="form-control my-2" placeholder="Xəbərin müddəti">
+    <input type="file" name="post_img" class="form-control my-2" placeholder="Xəbərin şəkli">
+    <input type="text" name="post_info" class="form-control my-2" placeholder="Xəbərin məlumatı">
+    <input type="submit"  class="btn btn-primary my-2" value="Əlavə et">
+</form>
+<h3 class="my-2">Xəbərlər</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Table</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+        <tr>
+            <td scope="row">{{post.id}}</td>
+            <td>{{post.post_title}}</td>
+            <td>
+                <a href="#">Sil</a>
+                <a href="#">Yenilə</a>
+            </td>
+        </tr>
+        
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
