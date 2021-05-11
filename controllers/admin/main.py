@@ -8,7 +8,7 @@ def admin_index():
 def news_admin_index():
     return render_template('admin/news.html')
 
-@app.route('/admin/news/info')
+@app.route('/admin/news/about')
 def news_info_about():
     return render_template('admin/news_about.html')
 

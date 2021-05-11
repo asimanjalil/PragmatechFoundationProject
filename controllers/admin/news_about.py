@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 from run import db
 from models import Post_info
 
-@app.route('/admin/news/info',methods=['GET','POST'])
+@app.route('/admin/news/about',methods=['GET','POST'])
 def news_info():    
     posts_details=Post_info.query.all()
     # Necəsə oldu,bilmirəm 
@@ -27,7 +27,7 @@ def news_info():
         db.session.add(post_info)
         db.session.commit()
         
-        return redirect("/admin/news/info")
+        return redirect("/admin/news/about")
 
     
     return render_template("admin/news_about.html",posts_details=posts_details)
