@@ -8,14 +8,18 @@ app.config['UPLOAD_FOLDER']=UPLOAD_FOLDER
 
 db=SQLAlchemy(app)
 migrate = Migrate(app, db)
-from models import *
+
 # App routları
 from controllers.app.main import *
 # Admin routları
+from controllers.admin.news_about import *
 from controllers.admin.news import *
 from controllers.admin.main import *
+
 from controllers.admin.gallery import *
-from controllers.admin.news_about import *
+
+
 from controllers.admin.main_page import *
+from models import *
 if __name__=='__main__':
     app.run(debug=True)

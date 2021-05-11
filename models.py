@@ -50,9 +50,6 @@ class Similar_products(db.Model):
     similar_product_title=db.Column(db.String(50))
     similar_product_price=db.Column(db.String(50))
     
-
-
-
 class Gallery_img(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    post_info_img=db.Column(db.String(50))
+    gallery_img=db.Column(db.String(50))
