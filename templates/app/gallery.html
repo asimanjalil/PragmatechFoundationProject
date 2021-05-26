@@ -1,3 +1,4 @@
+<title>Qalereya</title>
 {% extends "app/base.html" %}
 
 {% block content %}
@@ -11,26 +12,13 @@
                     <h2>Qalereya</h2>
                 </div>
             </div>
+            {% for gallery in gallery_img %}
             <div class="col-lg-4 col-md-4 col-sm-4 col-6 item">
                 <div class="brands-item-gal item-style">
-                    <a class="example-image-link" href="/img/Gallery Image/img_mountains.jpg" data-lightbox="example-2" ><img class="example-image" src="/img/Gallery Image/img_mountains.jpg" alt="image-1" /></a>
+                    <a class="example-image-link" href="/static/uploads/{{gallery.gallery_img}}" data-lightbox="example-2" ><img class="example-image" src="/static/uploads/{{gallery.gallery_img}}" alt="image-1" /></a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-6 item">
-                <div class="brands-item-gal item-style">
-                    <a class="example-image-link" href="/img/Gallery Image/img_lights.jpg" data-lightbox="example-2" ><img class="example-image" src="/img/Gallery Image/img_lights.jpg" alt="image-1" /></a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-6 item">
-                <div class="brands-item-gal item-style">
-                    <a class="example-image-link" href="/img/Gallery Image/img_nature.jpg" data-lightbox="example-2" ><img class="example-image" src="/img/Gallery Image/img_nature.jpg" alt="image-1" /></a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-6 item">
-                <div class="brands-item-gal item-style">
-                    <a class="example-image-link" href="/img/Gallery Image/img_snow.jpg" data-lightbox="example-2" ><img class="example-image" src="/img/Gallery Image/img_snow.jpg" alt="image-1" /></a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <!-- Begin pagination -->
         <nav class="pagination">

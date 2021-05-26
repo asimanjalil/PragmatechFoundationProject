@@ -1,6 +1,6 @@
 {% extends "admin/base.html" %} {% block content %}
 <h3 class="my-2">Xəbərin məzmununu əlavə et</h3>
-<form action="/admin/news/info"method='POST' enctype="multipart/form-data">
+<form action="/admin/news/about"method='POST' enctype="multipart/form-data">
     <input type="text" name="post_list_title" class="form-control my-2" placeholder="Xəbər listinin başlığı">
     <input type="text" name="post_info_title" class="form-control my-2" placeholder="Xəbərin başlığı">
     <input type="date" name="post_info_time" class="form-control my-2" placeholder="Xəbərin müddəti">
@@ -18,10 +18,10 @@
         </tr>
     </thead>
     <tbody>
-        {% for post_info in posts_details %}
+        {% for post in posts %}
         <tr>
-            <td scope="row">{{post_info.id}}</td>
-            <td>{{post_info.post_info_title}}</td>
+            <td scope="row">{{post.id}}</td>
+            <td>{{post.post_title}}</td>
             <td>
                 <a href="#">Sil</a>
                 <a href="#">Yenilə</a>

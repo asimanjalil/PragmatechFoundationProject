@@ -7,7 +7,6 @@ from werkzeug.utils import secure_filename
 def admin_news_index():
     from run import db
     from models import Post
-    print('aa')
     posts=Post.query.all()
 
     if request.method=='POST':

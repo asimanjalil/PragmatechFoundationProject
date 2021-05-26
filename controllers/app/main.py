@@ -38,15 +38,15 @@ def news_index():
 
 @app.route('/news/about')
 def news_about_index():
-    from models import Post_info
-    posts_details=Post_info.query.all()
-    return render_template('app/news_about.html',posts_details=posts_details)
+    from models import Post
+    posts=Post.query.all()
+    return render_template('app/news_about.html',posts=posts)
 
 @app.route('/gallery')
 def gallery_main_index():
     from models import Gallery_img
     gallery_img=Gallery_img.query.all()
-    return render_template('app/gallery.html',posts=gallery_img)
+    return render_template('app/gallery.html',gallery_img=gallery_img)
 
 @app.route('/contact')
 def contact_index():

@@ -15,11 +15,9 @@ from controllers.app.main import *
 from controllers.admin.news_about import *
 from controllers.admin.news import *
 from controllers.admin.main import *
-
 from controllers.admin.gallery import *
-
-
 from controllers.admin.main_page import *
 from models import *
+db.create_all()
 if __name__=='__main__':
     app.run(debug=True)

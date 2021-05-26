@@ -6453,7 +6453,6 @@ body.mob-main-mnu-open .mob-main-mnu {
     height: 2.25rem;
     border-radius: var(--el-border-radius-min);
     fill: var(--primary-color);
-    border: 1px solid var(--primary-color);
 }
 
 .footer-social-links li a > svg {

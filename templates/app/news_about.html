@@ -8,7 +8,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            {% for post_info in post_details %}
+                            {% for post in posts %}
                             <ul class="bread-crumbs-list">
                                 <li>
                                     <a href="index.html">Ana səhifə</a>
@@ -18,7 +18,7 @@
                                     <a href="news">Xəbərlər</a>
                                     <i class="material-icons md-18">chevron_right</i>
                                 </li>
-                                <li><a href="#!">{{post_info.post_list_title}}</a></li>
+                                <li><a href="#!">{{post.post_title}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -27,19 +27,19 @@
             <div class="col-lg-9 col-12 content-item">
                 <div class="news-post">
                     <header class="news-post-header">
-                        <h1 class="news-post-title">{{post_info.post_info_title}}</h1>
+                        <h1 class="news-post-title">{{post.post_title}}</h1>
                         <div class="news-post-meta">
                             <div class="news-post-meta-item">
                                 <i class="material-icons md-22">access_time</i>
-                                <span>{{post_info.post_info_time}}</span>
+                                <span>{{post.post_time}}</span>
                             </div>
                         </div>
                         <div class="news-post-img img-style">
-                            <img class="lazy" src="/static/uploads/{{post_info.post_info_img}}" alt="" data-loaded="true">
+                            <img class="lazy" src="/static/uploads/{{post.post_img}}" alt="" data-loaded="true">
                         </div>
                     </header>
                     <article class="news-post-article content">
-                        <p>{{post_info.post_info_description}}</p>
+                        <p>{{post.post_description)}}</p>
 
                     </article>
                

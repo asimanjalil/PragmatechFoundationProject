@@ -6,12 +6,13 @@
 
     <meta charset="utf-8">
 
-    <title>Xəbərlər</title>
+    
 
     <meta name="description" content="Description">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <link rel="stylesheet" href="/static/app/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/app//css/ecommerce.css">
     <link rel="stylesheet" href="/static/app//css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
@@ -19,11 +20,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="/static/app//logo/Icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/app//logo/Icon/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/static/app//logo/Icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/app//logo/Icon/favicon-16x16.png">
     <link rel="manifest" href="/static/app//logo/Icon/site.webmanifest">
     <link rel="icon" type="image/png" sizes="192x192" href="/static/app//logo/Icon/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/static/app//logo/Icon/android-chrome-512x512.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
 </head>
@@ -39,7 +42,7 @@
                 <div class="mob-main-mnu-content">
                     <ul class="mob-main-mnu-list">
                         <li class="">
-                            <a href="about.html">Haqqımızda</a>
+                            <a href="about">Haqqımızda</a>
 
                             <div class="mob-main-submnu" style="display: none;">
                                 <div class="mob-main-submnu-item">
@@ -48,7 +51,7 @@
                             </div>
                         </li>
                         <li class="">
-                            <a href="gallery.html">Qalereya</a>
+                            <a href="gallery">Qalereya</a>
 
                             <div class="mob-main-submnu" style="display: none;">
                                 <div class="mob-main-submnu-item">
@@ -57,7 +60,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="products.html">Məhsullar</a>
+                            <a href="products">Məhsullar</a>
                             <div class="mmm-btn"><i class="material-icons md-24">expand_more</i></div>
                             <div class="mob-main-submnu">
                                 <div class="mob-main-submnu-item">
@@ -78,15 +81,15 @@
                             </div>
                         </li>
                         <li>
-                            <a href="choose_oil.html">Öz yağını seç</a>
+                            <a href="choose">Öz yağını seç</a>
 
                         </li>
                         <li>
-                            <a href="news.html">Xəbərlər</a>
+                            <a href="news">Xəbərlər</a>
 
                         </li>
                         <li>
-                            <a href="contact.html">Əlaqə</a>
+                            <a href="contact">Əlaqə</a>
 
                         </li>
                     </ul>
@@ -140,6 +143,8 @@
                                                 <span><i class="fab fa-whatsapp"></i></span>
                                             </a>
                                         </li>
+                                        <div class="elfsight-app-4193b5a0-e9c1-4768-b2bc-072784bc0029" style="top: 430px;"></div>
+                                        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
                                     </ul><!-- End social links -->
 
                                 </div>
@@ -162,7 +167,7 @@
                             <div class="col-auto header-fixed-col">
                                 <!-- Begin logo -->
                                 <!-- Begin logo -->
-                                <a href="index.html" class="logo logo-ico-widht-text" title="Indikator">
+                                <a href="/" class="logo logo-ico-widht-text" title="Indikator">
                                     <img class="lazy logo-ico" src="/static/app//logo/indikator-logo.png" alt="" data-loaded="true"
                                         width="36" height="35"
                                         style="height: 60px;width: 160px;margin-left: 10px; ">
@@ -175,13 +180,13 @@
                                         <nav class="main-mnu">
                                             <ul class="main-mnu-list">
                                                 <li class="main-mnu-item-has-child">
-                                                    <a href="about.html" data-title="Haqqımızda" class="uppercase">
+                                                    <a href="about" data-title="Haqqımızda" class="uppercase">
                                                         <span>Haqqımızda</span>
                                                     </a>
                                                 </li>
                                                 
                                                 <li class="main-mnu-item-has-child">
-                                                    <a href="products.html" data-title="Məhsullar">
+                                                    <a href="products" data-title="Məhsullar">
                                                         <span>Məhsullar</span>
                                                         <i class="fas fa-chevron-down"></i>
                                                     </a>
@@ -204,22 +209,22 @@
                                                     </ul>
                                                 </li>
                                                 <li class="main-mnu-item-has-child open main-mnu-item-mega-mnu">
-                                                    <a href="choose_oil.html" data-title="Öz yağını seç">
+                                                    <a href="choose" data-title="Öz yağını seç">
                                                         <span>Öz yağını seç</span>
                                                     </a>
                                                 </li>
                                                 <li class="main-mnu-item-has-child">
-                                                    <a href="news.html" data-title="Xəbərlər">
+                                                    <a href="news" data-title="Xəbərlər">
                                                         <span>Xəbərlər</span>
                                                     </a>
                                                     <li class="main-mnu-item-has-child">
-                                                        <a href="gallery.html" data-title="Qalereya" class="uppercase">
+                                                        <a href="gallery" data-title="Qalereya" class="uppercase">
                                                             <span>Qalereya</span>
                                                         </a>
                                                     </li>
                                                 </li>
                                                 <li class="main-mnu-item-has-child">
-                                                    <a href="contact.html" data-title="Əlaqə">
+                                                    <a href="contact" data-title="Əlaqə">
                                                         <span>Əlaqə</span>
                                                     </a>
                                                 </li>
@@ -378,15 +383,15 @@
                                 <h4 class="footer-item-title">Yararlı linklər</h4>
                                 <nav class="footer-nav">
                                     <ul class="footer-mnu">
-                                        <li><a href="about.html" class="hover-link"
+                                        <li><a href="about" class="hover-link"
                                                 data-title="About Us"><span>Haqqımızda</span></a></li>
-                                        <li><a href="products.html" class="hover-link"
+                                        <li><a href="products" class="hover-link"
                                                 data-title="Services"><span>Məhsullar</span></a></li>
-                                        <li><a href="news.html" class="hover-link"
+                                        <li><a href="news" class="hover-link"
                                                 data-title="News"><span>Xəbərlər</span></a></li>
-                                                <li><a href="gallery.html" class="hover-link"
+                                                <li><a href="gallery" class="hover-link"
                                                     data-title="Gallery"><span>Qalereya</span></a></li>
-                                        <li><a href="contact.html" class="hover-link"
+                                        <li><a href="contact" class="hover-link"
                                                 data-title="Contact Us"><span>Əlaqə</span></a></li>
                                     </ul>
                                 </nav>
@@ -471,6 +476,7 @@
         <script src="/static/app//js/jquery_003.js"></script>
         <script src="/static/app//js/lozad.js"></script>
         <script src="/static/app//js/custom.js"></script>
+        <!-- <script src="/static/app/js/lightbox-plus-jquery.min.js"></script> -->
         <div class="mf-bg"></div>
         <div class="btn-top"></div>
 </body>
