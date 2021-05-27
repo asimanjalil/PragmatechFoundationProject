@@ -12,7 +12,7 @@ migrate = Migrate(app, db)
 # App routları
 from controllers.app.main import *
 # Admin routları
-from controllers.admin.news_about import *
+from controllers.admin.products import *
 from controllers.admin.news import *
 from controllers.admin.main import *
 from controllers.admin.gallery import *

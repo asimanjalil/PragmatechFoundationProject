@@ -8,10 +8,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            {% for post in posts %}
+                            
                             <ul class="bread-crumbs-list">
                                 <li>
-                                    <a href="index.html">Ana səhifə</a>
+                                    <a href="/">Ana səhifə</a>
                                     <i class="material-icons md-18">chevron_right</i>
                                 </li>
                                 <li>
@@ -39,58 +39,49 @@
                         </div>
                     </header>
                     <article class="news-post-article content">
-                        <p>{{post.post_description)}}</p>
+                        <p>{{post.post_description}}</p>
 
                     </article>
                
-                            {% endfor %} </div>
+                            </div>
                 <div class="page-sections">
                     <section class="section">
                         <div class="row items">
                             <div class="col-12">
                                 <h4>Recent Posts</h4>
                             </div>
+                           
+                            {% for post_ in reverse_post[:2] %}
+                        
+                            {% if post.id!=post_.id %}
+                            
+                            
                             <div class="col-md-6 col-12 item">
                                 <!-- Begin news item -->
                                 <article class="news-item item-style">
-                                    <a href="#" class="news-item-img">
-                                        <img class="lazy" src="/img/Products Image/Amsoil Premium Protection 10W-40.jpg"
+                                    <a href="/news/about/{{post_.id}}" class="news-item-img">
+                                        <img class="lazy" src="/static/uploads/{{post_.post_img}}"
                                             alt="">
                                     </a>
+                    
                                     <div class="news-item-info">
-                                        <div class="news-item-date">07/01/2021</div>
+                                        <div class="news-item-date">{{post_.post_time}}</div>
                                         <h4 class="news-item-title item-heading">
-                                            <a href="#" title="Benefits Of Async/Await">Lorem ipsum dolor
-                                                sit amet consectetur adipisicing elit. Nulla,
-                                                reprehenderit.</a>
+                                            <a href="#" title="Benefits Of Async/Await">
+                                                {{post_.post_title}}
                                         </h4>
                                         <div class="news-item-desc">
-                                            <p>TƏBİB-dən əhaliyə növbəti xəbərdarlıq: Karantin davam edir,
-                                                qapanmalar ola bilər - VİDEO</p>
+                                            <p> {{post_.post_info}}</p>
                                         </div>
                                     </div>
                                 </article><!-- End news item -->
                             </div>
-                            <div class="col-md-6 col-12 item">
-                                <!-- Begin news item -->
-                                <article class="news-item item-style">
-                                    <a href="#" class="news-item-img">
-                                        <img class="lazy" src="/img/Products Image/Amsoil SS Motor oil 0W-20.jpg" alt="">
-                                    </a>
-                                    <div class="news-item-info">
-                                        <div class="news-item-date">05/01/2021</div>
-                                        <h4 class="news-item-title item-heading">
-                                            <a href="#" title="Key Considerations Of IPaaS">Lorem ipsum
-                                                dolor sit.</a>
-                                        </h4>
-                                        <div class="news-item-desc">
-                                            <p>TƏBİB-dən əhaliyə növbəti xəbərdarlıq: Karantin davam edir,
-                                                qapanmalar ola bilər - VİDEO
-                                            </p>
-                                        </div>
-                                    </div>
-                                </article><!-- End news item -->
-                            </div>
+                       
+                            {% endif %}
+                            
+                            {% endfor %}
+                           
+                          
                         </div>
                     </section>
                 </div>

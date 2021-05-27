@@ -2,12 +2,29 @@
 
 <h3 class="my-2">Məhsul əlavə et</h3>
 <form action="/admin/products"method='POST' enctype="multipart/form-data">
-    <input type="text" name="product_sale" class="form-control my-2" placeholder="Məhsulun endirimdə və ya yeni olması">
-    <input type="text" name="product_category" class="form-control my-2" placeholder="Məhsulun kateqoriyasının linki">
-    <input type="text" name="product_category_title" class="form-control my-2" placeholder="Məhsulun kateqoriyasının başlığı">
-    <input type="file" name="product_img" class="form-control my-2" placeholder="Məhsulun şəkli">
-    <input type="text" name="product_title" class="form-control my-2" placeholder="Məhsulun başlığı">
-    <input type="text" name="product_price" class="form-control my-2" placeholder="Məhsulun qiyməti">
+    <div class="form-group col-sm-4">
+        <label for="ccmonth">Endirim məlumatı</label>
+        <select class="form-control" name="product_sale">
+            <option >card-badge card-badge-new </option>
+            <option>card-badge card-badge-sale</option>
+            <option>card-badge card-badge-rec</option>
+        </select>
+        <label for="ccmonth" style="margin-top:10px">Məhsulun şəkli</label>
+        <input type="file" name="product_img" class="form-control my-2" placeholder="Məhsulun şəkli">
+    </div>
+    <div class="form-group col-sm-4">
+        <label for="ccyear">Məhsulun kateqoriyası</label>
+            <input class="form-control my-2" name="product_category" type="text" placeholder="Məhsulun kateqoriyası">
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <input type="text" name="product_name" class="form-control my-2" placeholder="Məhsulun adı">
+            <input class="form-control my-2" name="product_price" type="text" placeholder="Qiymət">
+            <input class="form-control my-2" name="product_old_price" type="text" placeholder="Endirimli qiymət">
+        </div>
+    </div>
+    <textarea name="product_simple_description" class='form-control my-2' cols="30" rows="3" placeholder="Məhsulun ilkin məlumatı"></textarea>
+    <textarea name="product_details_description" class='form-control my-2' cols="30" rows="5" placeholder="Məhsulun ətraflı məlumatı"></textarea>
     <input type="submit"  class="btn btn-primary my-2" value="Əlavə et">
 </form>
 <h3 class="my-2">Məhsullar</h3>
@@ -20,10 +37,10 @@
         </tr>
     </thead>
     <tbody>
-        {% for post in posts %}
+        {% for product in products %}
         <tr>
-            <td scope="row">{{post.id}}</td>
-            <td>{{post.post_title}}</td>
+            <td scope="row">{{product.id}}</td>
+            <td>{{product.product_title}}</td>
             <td>
                 <a href="#">Sil</a>
                 <a href="#">Yenilə</a>

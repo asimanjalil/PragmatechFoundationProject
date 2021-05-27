@@ -2,12 +2,12 @@ from run import app
 import os
 from flask import render_template,redirect,request
 from werkzeug.utils import secure_filename
-from run import db
-from models import Gallery_img
+
 
 @app.route('/admin/gallery',methods=['GET','POST'])
 def admin_gallery_index():
-
+    from run import db
+    from models import Gallery_img
     if request.method=='POST':
         file=request.files['gallery_img']
         filename=file.filename
@@ -20,7 +20,6 @@ def admin_gallery_index():
         )
         db.session.add(gallery)
         db.session.commit()
-        print (file)
         return redirect('/admin/gallery')
   
     

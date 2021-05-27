@@ -20,13 +20,23 @@ def admin_news_index():
             post_title=request.form['post_title'],
             post_time=request.form['post_time'],
             post_info=request.form['post_info'],
-            post_img=filename
+            post_img=filename,
+            post_description=request.form['post_description']
         )
         db.session.add(post)
         db.session.commit()
         return redirect('/admin/news')
     return render_template('admin/news.html',posts=posts)
 
+@app.route('/delete')
+def delete():
+    from models import Post
+    posts=Post.query.all()
+    for post in posts:
+        if post.id==int(id):
+            posts.remove(post)
+            return redirect('admin/news')
+    return redirect('admin/news',posts=posts)
 
 
 

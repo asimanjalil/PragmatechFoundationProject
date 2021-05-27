@@ -2,9 +2,14 @@
 <h3 class="my-2">Xəbər əlavə et</h3>
 <form action="/admin/news"method='POST' enctype="multipart/form-data">
     <input type="text" name="post_title" class="form-control my-2" placeholder="Xəbər başlığı">
-    <input type="date" name="post_time" class="form-control my-2" placeholder="Xəbərin müddəti">
-    <input type="file" name="post_img" class="form-control my-2" placeholder="Xəbərin şəkli">
+    <input type="date" name="post_time" class="form-control my-2" placeholder="Xəbərin zamanı">
+    <div class="form-group col-sm-4">
+        <label for="ccmonth" style="margin-top:10px">Məhsulun şəkli</label>
+        <input type="file" name="post_img" class="form-control my-2" placeholder="Məhsulun şəkli">
+      </div>
+
     <input type="text" name="post_info" class="form-control my-2" placeholder="Xəbərin məlumatı">
+    <textarea name="post_description" class='form-control my-2' cols="30" rows="5" placeholder="Xəbərin geniş məlumatı"></textarea>
     <input type="submit"  class="btn btn-primary my-2" value="Əlavə et">
 </form>
 <h3 class="my-2">Xəbərlər</h3>
@@ -22,7 +27,7 @@
             <td scope="row">{{post.id}}</td>
             <td>{{post.post_title}}</td>
             <td>
-                <a href="#">Sil</a>
+                <a href="/admin/news/{{post.id}}">Sil</a>
                 <a href="#">Yenilə</a>
             </td>
         </tr>

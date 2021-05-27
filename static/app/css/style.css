@@ -890,6 +890,7 @@ blockquote footer {
     position: relative;
     padding: 1.125rem 0;
     background-color: var(--primary-bg-color);
+    width: 100%;
 }
 
 .bread-crumbs-list {
@@ -1316,7 +1317,7 @@ blockquote footer {
     margin-right: 0px;
     right: 1px;
     left: 5px;
-    top: -11px;
+    top: -1px;
 }
 
 /* 2.5 Carusel */
@@ -6735,8 +6736,6 @@ body.mob-main-mnu-open .mob-main-mnu {
 .icon-style{
     font-size: 40px;
     position: relative;
-    bottom: 13px;
-    margin-right: 0px;
     right: 1px;
 }
 

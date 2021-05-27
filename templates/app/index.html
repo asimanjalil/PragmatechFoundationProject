@@ -145,11 +145,11 @@
                                 <h2>Ən son yeniliklər</h2>
                             </div>
                         </div>
-                        {% for post_info in Post_info %}
+                        {% for post in posts [:3] %}
             <div class="col-lg-4 col-md-6 col-12 item">
                 <!-- Begin news item -->
                 <article class="news-item item-style">
-                    <a href="news/about" class="news-item-img">
+                    <a href="news/about/{{post.id}}" class="news-item-img">
                         <img class="lazy" src="/static/uploads/{{post.post_img}}" alt=""
                             data-loaded="true">
                     </a>
@@ -164,10 +164,11 @@
                     </div>
                 </article><!-- End news item -->
             </div>
+            
             {% endfor %}
                         <div class="col-12">
                             <div class="section-btns justify-content-center">
-                                <a href="news.html" class="btn btn-with-icon btn-w240 ripple">
+                                <a href="news" class="btn btn-with-icon btn-w240 ripple">
                                     <span>Bütün xəbərləri gör</span>
                                     <span class="el-ripple-circle"></span></a>
                             </div>
