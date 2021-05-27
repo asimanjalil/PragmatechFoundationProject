@@ -11,7 +11,9 @@ class Post(db.Model):
 class Products(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     product_sale=db.Column(db.String(50))
+    product_sale_name=db.Column(db.String(20))
     product_category=db.Column(db.String(100))
+    product_sub_category=db.Column(db.String(50))
     product_img=db.Column(db.String(50))
     product_name=db.Column(db.String(50))
     product_price=db.Column(db.String(50))

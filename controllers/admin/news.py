@@ -1,4 +1,5 @@
 from run import app
+from models import Post
 import os
 from flask import render_template,redirect,request
 from werkzeug.utils import secure_filename
@@ -6,7 +7,7 @@ from werkzeug.utils import secure_filename
 @app.route('/admin/news',methods=['GET','POST'])
 def admin_news_index():
     from run import db
-    from models import Post
+#    from models import Post
     posts=Post.query.all()
 
     if request.method=='POST':
@@ -28,15 +29,14 @@ def admin_news_index():
         return redirect('/admin/news')
     return render_template('admin/news.html',posts=posts)
 
-@app.route('/delete')
-def delete():
+@app.route('/admin/news/delete/<id>')
+def delete_news(id):
     from models import Post
-    posts=Post.query.all()
-    for post in posts:
-        if post.id==int(id):
-            posts.remove(post)
-            return redirect('admin/news')
-    return redirect('admin/news',posts=posts)
+    from run import db
+    user=Post.query.get(id)
+    db.session.delete(user)
+    db.session.commit()
+    return redirect('/admin/news')
 
 
 

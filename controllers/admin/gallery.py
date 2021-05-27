@@ -21,6 +21,12 @@ def admin_gallery_index():
         db.session.add(gallery)
         db.session.commit()
         return redirect('/admin/gallery')
-  
-    
     return render_template('admin/gallery.html',gallery_img=Gallery_img.query.all())
+@app.route('/admin/gallery/delete/<id>')
+def delete_gallery(id):
+    from models import Gallery_img
+    from run import db
+    user=Gallery_img.query.get(id)
+    db.session.delete(user)
+    db.session.commit()
+    return redirect('/admin/gallery')

@@ -16,7 +16,15 @@
                                     <a href="/products">Məhsullar</a>
                                     <i class="material-icons md-18">chevron_right</i>
                                 </li>
-                                <li><a href="#!">Amsoil</a></li>
+                                <li>
+                                    <a href="/products">{{product.product_category}}</a>
+                                    <i class="material-icons md-18">chevron_right</i>
+                                </li>
+                                <li>
+                                    <a href="/products">{{product.product_sub_category}}</a>
+                                    <i class="material-icons md-18">chevron_right</i>
+                                </li>
+                                <li><a href="/products">{{product.product_name}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -40,7 +48,7 @@
 
 
                                                         <div class="card-badges">
-                                                            <div class="{{product.product_sale}}">{{product.product_sale}}</div>
+                                                            <div class="{{product.product_sale}}">{{product.product_sale_name}}</div>
                                                         </div>
                                                         <div class="flickity-viewport"
                                                             style="height: 538px; touch-action: pan-y;">
@@ -87,12 +95,12 @@
                                                         <ul class="list-style-none card-page-meta">
                                                             <li>
                                                                 <b>Məhsullar:</b>
-                                                                <div><a href="#!">{{product.product_category}}</a>
+                                                                <div><a href="/products">{{product.product_category}}</a>
                                                                 </div>
                                                             </li>
                                                             <li>
                                                                 <b>Məhsul:</b>
-                                                                <div><a href="#!">{{product.product_category}}</a></div>
+                                                                <div><a href="/products">{{product.product_sub_category}}</a></div>
                                                             </li>
 
                                                         </ul>

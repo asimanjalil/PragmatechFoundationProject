@@ -9,20 +9,61 @@
             <option>card-badge card-badge-sale</option>
             <option>card-badge card-badge-rec</option>
         </select>
+        <select class="form-control" name="product_sale_name">
+            <option >Yeni</option>
+            <option>Endirim</option>
+            <option>Tövsiyyə</option>
+        </select>
         <label for="ccmonth" style="margin-top:10px">Məhsulun şəkli</label>
         <input type="file" name="product_img" class="form-control my-2" placeholder="Məhsulun şəkli">
     </div>
-    <div class="form-group col-sm-4">
-        <label for="ccyear">Məhsulun kateqoriyası</label>
-            <input class="form-control my-2" name="product_category" type="text" placeholder="Məhsulun kateqoriyası">
-    </div>
     <div class="col-sm-4">
         <div class="form-group">
+            <select class="form-control" name="product_category">
+                <option >Mühərrik və transmissiya yağları</option>
+                <option>Ehtiyat hissələri</option>
+                <option>Avtokosmetika</option>
+                <option>Akkumlyatorlar</option>
+                <option>Qatqılar</option>
+            </select>
+            <select class="form-control" name="product_sub_category">
+                <option >Opet</option>
+                <option>Ravenol</option>
+                <option>Meguin</option>
+                <option>Amsoil</option>
+                <option>Petro Canada</option>
+                <option>Liqui Moly</option>
+                <option>Alpine</option>
+                <option >Əyləc qəlibləri</option>
+                <option>Əyləc diskləri</option>
+                <option>Alışdırma şamları</option>
+                <option>Filtrlər</option>
+                <option>Qranatlar</option>
+                <option>Asqı sistemi</option>
+                <option>K2</option>
+                <option>MojeAuto</option>
+                <option>Areon</option>
+                <option>Aroma</option>
+                <option>Dr.Marcus</option>
+                <option>Varta</option>
+                <option>İnci</option>
+                <option>Gigawatt</option>
+                <option>Bosch</option>
+                <option>Gladiator</option>
+                <option>Sputnik</option>
+                <option>Amsoil</option>
+                <option>Alpine</option>
+                <option>Coolstream</option>
+                <option>Ravenol</option>
+                <option>Meguin</option>
+            </select>
             <input type="text" name="product_name" class="form-control my-2" placeholder="Məhsulun adı">
-            <input class="form-control my-2" name="product_price" type="text" placeholder="Qiymət">
-            <input class="form-control my-2" name="product_old_price" type="text" placeholder="Endirimli qiymət">
+            <input class="form-control my-2" name="product_price" type="text" placeholder="Endirimli qiymət">
+            <input class="form-control my-2" name="product_old_price" type="text" placeholder="Qiymət">
         </div>
     </div>
+    
+    
     <textarea name="product_simple_description" class='form-control my-2' cols="30" rows="3" placeholder="Məhsulun ilkin məlumatı"></textarea>
     <textarea name="product_details_description" class='form-control my-2' cols="30" rows="5" placeholder="Məhsulun ətraflı məlumatı"></textarea>
     <input type="submit"  class="btn btn-primary my-2" value="Əlavə et">
@@ -42,7 +83,7 @@
             <td scope="row">{{product.id}}</td>
             <td>{{product.product_title}}</td>
             <td>
-                <a href="#">Sil</a>
+                <a href="/admin/products/delete/{{product.id}}">Sil</a>
                 <a href="#">Yenilə</a>
             </td>
         </tr>
