@@ -6,29 +6,29 @@
 
     <meta charset="utf-8">
 
-    
+    <title>Məhsullar</title>
 
     <meta name="description" content="Description">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/app//css/ecommerce.css">
-    <link rel="stylesheet" href="/static/app//css/style.css">
+    <link rel="stylesheet" href="/static/app/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/app/css/style.css">
+    <link rel="stylesheet" href="/static/app/css/ecommerce.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/app//logo/Icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/app//logo/Icon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/app//logo/Icon/favicon-16x16.png">
-    <link rel="manifest" href="/static/app//logo/Icon/site.webmanifest">
-    <link rel="icon" type="image/png" sizes="192x192" href="/static/app//logo/Icon/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/static/app//logo/Icon/android-chrome-512x512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/app/logo/Icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/app/logo/Icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/app/logo/Icon/favicon-16x16.png">
+    <link rel="manifest" href="/static/app/logo/Icon/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/app/logo/Icon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/static/app/logo/Icon/android-chrome-512x512.png">
+
 
 
 </head>
-
 <body class="">
 
     <main class="main main-visible">
@@ -135,9 +135,8 @@
                                                 <span><i class="fab fa-whatsapp"></i></span>
                                             </a>
                                         </li>
-                                        <!-- Whatsapp Api -->
-                                        <!-- <div class="elfsight-app-4193b5a0-e9c1-4768-b2bc-072784bc0029" style="top: 430px;"></div>
-                                        <script src="https://apps.elfsight.com/p/platform.js" defer></script> -->
+                                        <div class="elfsight-app-4193b5a0-e9c1-4768-b2bc-072784bc0029" style="top: 430px;"></div>
+                                        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
                                     </ul><!-- End social links -->
 
                                 </div>
@@ -306,143 +305,293 @@
                 </nav>
                 <div style="display: none; width: 751px; height: 80px; float: none;"></div><!-- End header fixed -->
             </header><!-- End header -->
-            {% block content %}
-            data
-            {% endblock %}
-            <!-- Begin footer -->
-        <footer class="footer">
-            <div class="footer-main">
+            <!-- Begin latest news -->
+            <div class="section">
                 <div class="container">
-                    <div class="row items">
-                        <div class="col-xl-3 col-lg-3 col-md-5 col-12 item">
-                            <!-- Begin company info -->
-                            <div class="footer-company-info">
-                                <div class="footer-company-top">
-                                    <a href="/" class="logo logo-ico-widht-text" title="Indikator">
-                                        <img class="lazy logo-ico" src="/static/app//logo/indikator-logo.png" alt="" width="36"
-                                            height="35"
-                                            style="height: 75px;width: 175px;margin-left: 40px; ">
-                                    </a>
-                                    <div class="footer-company-desc">
-                                        <p>İndikator Avto 2018-ci ildə ilk olaraq avtomobil ehtiyat hissələrinin satışı
-                                            ilə fəaliyyətə başlayıb.Əsas prinsipimiz müştərilərə hər zaman keyfiyyətli
-                                            məhsullar təqdim etmək və keyfiyyətli xidmət göstərməkdir.</p>
-                                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-heading heading-center">
+                                <h1>{{Categories.query.filter_by(id=selected_category.id).first().categories_name}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Begin shop sorting -->
+                    <div class="row gutters-20 align-items-center shop-sorting">
+                        <div class="col-lg-4 col-md-6 col-auto">
+                            <div class="shop-sorting-items">
+                                <div class="shop-sorting-item shop-filter-toggle d-lg-none">
+                                    <a class="btn btn-with-icon btn-border btn-small ripple side-open"
+                                        data-side=".sidebar-filters">
+                                        <i class="material-icons btn-icon-left md-22">filter_list</i>
+                                        <span>Filterlə</span>
+                                        <span class="el-ripple-circle"></span></a>
                                 </div>
-                                <ul class="footer-social-links">
-                                    <li>
-                                        <a href="https://www.facebook.com/%C4%B0ndikator-Ya%C4%9F-M%C9%99rk%C9%99zi-104879538260922/" title="Facebook">
-                                            <span class="icon-style">
-                                                <i class="fab fa-facebook-square"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" title="Instagram">
-                                            <span class="icon-style">
-                                                <i class="fab fa-instagram-square"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" title="LinkedIn">
-                                            <span class="icon-style">
-                                                <i class="fab fa-linkedin"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" title="Twitter">
-                                            <span class="icon-style">
-                                                <i class="fab fa-twitter-square"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
+                                <div class="shop-sorting-item shop-result-count d-none d-md-block"> 
+                                </div>
                             </div>
-                            <!-- End company info -->
                         </div>
-                        <div class="col-xl-2 offset-xl-1 col-md-3 col-5 col-lg-2 item">
-                            <div class="footer-item">
-                                <h4 class="footer-item-title">Yararlı linklər</h4>
-                                <nav class="footer-nav">
-                                    <ul class="footer-mnu">
-                                        <li><a href="/about" class="hover-link"
-                                                data-title="About Us"><span>Haqqımızda</span></a></li>
-                                        <li><a href="/products" class="hover-link"
-                                                data-title="Services"><span>Məhsullar</span></a></li>
-                                        <li><a href="/news" class="hover-link"
-                                                data-title="News"><span>Xəbərlər</span></a></li>
-                                                <li><a href="/gallery" class="hover-link"
-                                                    data-title="Gallery"><span>Qalereya</span></a></li>
-                                        <li><a href="/contact" class="hover-link"
-                                                data-title="Contact Us"><span>Əlaqə</span></a></li>
+                        <div class="col-lg-8 col-md-6 col">
+                            <div class="shop-sorting-items justify-content-end">
+                                <div class="d-none d-lg-block">
+                                    <ul class="shop-sorting-item list-style-none orderby-list hl-list">
+                                        <li class="active"><a class="hover-link" href="#!"
+                                                data-title="Popularity"><span>Populyarlığa görə</span></a></li>
+                                        <li><a href="#!" class="hover-link" data-title="Latest"><span>Tarixə
+                                                    görə</span></a></li>
+                                        <li><a href="#!" class="hover-link" data-title="Low price first"><span>Min
+                                                    qiymət</span></a></li>
+                                        <li><a href="#!" class="hover-link" data-title="High price first"><span>Max
+                                                    qiymət</span></a></li>
                                     </ul>
-                                </nav>
+                                </div>
+                                <form class="shop-sorting-item shop-ordering d-lg-none" action="#!" method="get">
+                                    <div class="form-field form-field-small form-field-m0 focus">
+                                        <div class="select">
+                                            <select name="orderby" class="shop-orderby" aria-label="Shop order">
+                                                <option value="popularity" selected="selected">Populyarlığa görə
+                                                </option>
+                                                <option value="rating">Tarixə görə</option>
+                                                <option value="date">Min qiymət</option>
+                                                <option value="price">Max qiymət</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <div class="col-xl-2 col-lg-3 col-md-3 col-7 item">
-                            <div class="footer-item">
-                                <h4 class="footer-item-title">Məhsullar</h4>
-                                <nav class="footer-nav">
-                                    <ul>
+                    </div><!-- End shop sorting -->
+                    <div class="row gutters-20">
+                        <div class="col-lg-3 col-12">
+                            <aside class="sidebar sidebar-filters sidebar-filters-mob">
+                                <div class="sidebar-item sidebar-item-margin sidebar-item-style">
+                                    <p class="sidebar-item-title item-heading">Məhsullarımız</p>
+                                    <ul class="sidebar-cat hl-list sidebar-cat-tree">
+                                        
                                         {% for category in categories %}
-                                        <li class="footer-item-nav-title"><a href="/category/{{category.id}}">{{category.categories_name}}</a></li>
+                                        <li class="sidebar-cat-item sidebar-cat-item-has-child ">
+                                            <a href="/products/category/" class="sidebar-cat-link hover-link"
+                                                data-title="engine_transmission_oils">
+                                                <span><strong>{{category.categories_name}}</strong></span>
+                                                <i class="material-icons md-22 sidebar-cat-icon">chevron_right</i>
+                                            </a>
+                                            <ul style="display: none;">
+                                                <!-- <li><a href="/products/category/{{product_category}}" class="hover-link"
+                                                        data-title="Opet"><span>Opet</span></a></li> -->
+                                                
+                                            </ul>
+                                        </li>
                                         {% endfor %}
                                         
-                                        
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <div class="col-xs-4 col-lg-4 col-12 item">
-                            <div class="footer-item">
-                                <h4 class="footer-item-title">Bizimlə əlaqə</h4>
-                                <ul class="footer-contacts">
-                                    <li>
-                                        <i class="material-icons md-22">location_on</i>
-                                        <div class="footer-contact-info">
-                                            Suraxanı rayonu Yeni Ramana qəsəbəsi
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="material-icons md-22 footer-contact-tel">smartphone</i>
-                                        <div class="footer-contact-info">
-                                            <a href="tel:+994 51 548 05 05" class="formingHrefTel">+994 51 548 05 05</a>
-                                            <a href="tel:+994 51 548 05 05"></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="material-icons md-22 footer-contact-email">email</i>
-                                        <div class="footer-contact-info">
-                                            <a href="mailto:indikator.az@gmail.com">indikator.az@gmail.com</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row justify-content-between items">
 
-                        <div class="col-md-auto col-12 item">
-                            <div class="copyright">© Indikator.az 2021. Site by MAD Corporation.Bütün hüquqlar qorunur.
+                                    </ul>
+                                </div>
+
+                                <div class="side-close"><i class="material-icons md-24">close</i></div>
+                            </aside>
+                        </div>
+                        <div class="col-lg-9 col-12">
+                            <!-- Begin catalog -->
+                            <div class="row gutters-20 catalog">
+                                {% if Products.query.filter_by(category_id=selected_category.id).first()%}
+                               
+                               
+                                {% for product in Products.query.filter_by(category_id=selected_category.id) %}
+             
+                                
+                               
+                                <div class="col-lg-3 col-md-4 col-sm-4 col-6 item">
+                                    <!-- Begin card -->
+                                    <div class="item-style card">
+                                        <header class="card-header">
+                                            <a href="/products_ext/{{product.id}}" class="card-image">
+                                                <img data-src="" class="lazy"
+                                                    src="/static/uploads/{{product.product_img}}" alt=""
+                                                    data-loaded="true">
+                                            </a>
+                                            <div class="card-badges">
+                                                <div class="{{product.product_sale}}">{{product.product_sale_name}}</div>
+                                            </div>
+                                        </header>
+                                        <div class="card-info">
+                                            {% for category in categories [:1] %}
+                                            <div class="card-posted-in" title="{{Categories.query.filter_by(id=product.category_id).first().categories_name}}">
+                                                <a href="/category/{{category.id}}"><span >{{Categories.query.filter_by(id=product.category_id).first().categories_name}}</span></a>
+                                            </div>
+                                            {% endfor %}
+                                            <h3 class="item-heading card-title">
+                                                <a href="products_ext/{{product.id}}" title="{{product.product_name}}">{{product.product_name}}</a>
+                                            </h3>
+                                            <div class="card-prices">
+                                                <div class="card-price">{{product.product_price}}</div>
+                                            </div>
+                                        </div>
+                                    </div><!-- End card -->
+                                </div>
+                                
+                                {% endfor %}
+                                
+                                {% else %}
+                                <h2>Bu kateqoriyaya uyğun məhsul yoxdur</h2>
+                                {% endif %}
+                              
+                            </div><!-- End catalog -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <br>
+                                    <!-- Begin pagination -->
+                                    <nav class="pagination">
+                                        <ul class="pagination-list">
+                                            <li
+                                                class="pagination-item-arrow pagination-item-arrow-prev pagination-item-disabled">
+                                                <a href="#!"><i class="material-icons md-24">chevron_left</i></a>
+                                            </li>
+                                            <li class="active"><a href="#!">1</a></li>
+                                            <li><a href="#!">2</a></li>
+                                            <li><a href="#!">3</a></li>
+                                            <li><a href="#!">4</a></li>
+                                            <li class="pagination-item-arrow pagination-item-arrow-next"><a href="#!"><i
+                                                        class="material-icons md-24">chevron_right</i></a></li>
+                                        </ul>
+                                    </nav><!-- End pagination -->
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </footer><!-- End footer -->
-        <script src="/static/app//js/jquery_003.js"></script>
-        <script src="/static/app//js/lozad.js"></script>
-        <script src="/static/app//js/custom.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <div class="mf-bg"></div>
-        <div class="btn-top"></div>
+        </div>
+
+        </div>
+<!-- Begin footer -->
+<footer class="footer">
+    <div class="footer-main">
+        <div class="container">
+            <div class="row items">
+                <div class="col-xl-3 col-lg-3 col-md-5 col-12 item">
+                    <!-- Begin company info -->
+                    <div class="footer-company-info">
+                        <div class="footer-company-top">
+                            <a href="#" class="logo logo-ico-widht-text" title="Indikator">
+                                <img class="lazy logo-ico" src="/static/app/logo/indikator-logo.png" alt="" width="36"
+                                    height="35"
+                                    style="height: 75px;width: 175px;margin-left: 40px; ">
+                            </a>
+                            <div class="footer-company-desc">
+                                <p>İndikator Avto 2018-ci ildə ilk olaraq avtomobil ehtiyat hissələrinin satışı
+                                    ilə fəaliyyətə başlayıb.Əsas prinsipimiz müştərilərə hər zaman keyfiyyətli
+                                    məhsullar təqdim etmək və keyfiyyətli xidmət göstərməkdir.</p>
+                            </div>
+                        </div>
+                        <ul class="footer-social-links">
+                            <li>
+                                <a href="https://www.facebook.com/%C4%B0ndikator-Ya%C4%9F-M%C9%99rk%C9%99zi-104879538260922/" title="Facebook">
+                                    <span class="icon-style">
+                                        <i class="fab fa-facebook-square"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="Instagram">
+                                    <span class="icon-style">
+                                        <i class="fab fa-instagram-square"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="LinkedIn">
+                                    <span class="icon-style">
+                                        <i class="fab fa-linkedin"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="Twitter">
+                                    <span class="icon-style">
+                                        <i class="fab fa-twitter-square"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End company info -->
+                </div>
+                <div class="col-xl-2 offset-xl-1 col-md-3 col-5 col-lg-2 item">
+                    <div class="footer-item">
+                        <h4 class="footer-item-title">Yararlı linklər</h4>
+                        <nav class="footer-nav">
+                            <ul class="footer-mnu">
+                                <li><a href="about.html" class="hover-link"
+                                        data-title="About Us"><span>Haqqımızda</span></a></li>
+                                <li><a href="products.html" class="hover-link"
+                                        data-title="Services"><span>Məhsullar</span></a></li>
+                                <li><a href="news.html" class="hover-link"
+                                        data-title="News"><span>Xəbərlər</span></a></li>
+                                        <li><a href="gallery.html" class="hover-link"
+                                            data-title="Gallery"><span>Qalereya</span></a></li>
+                                <li><a href="contact.html" class="hover-link"
+                                        data-title="Contact Us"><span>Əlaqə</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-3 col-7 item">
+                    <div class="footer-item">
+                        <h4 class="footer-item-title">Məhsullar</h4>
+                        <nav class="footer-nav">
+                            <ul>
+                                {% for category in categories %}
+                                <li class="footer-item-nav-title"><a href="/category/{{category.id}}">{{category.categories_name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-4 col-12 item">
+                    <div class="footer-item">
+                        <h4 class="footer-item-title">Bizimlə əlaqə</h4>
+                        <ul class="footer-contacts">
+                            <li>
+                                <i class="material-icons md-22">location_on</i>
+                                <div class="footer-contact-info">
+                                    Suraxanı rayonu Yeni Ramana qəsəbəsi
+                                </div>
+                            </li>
+                            <li>
+                                <i class="material-icons md-22 footer-contact-tel">smartphone</i>
+                                <div class="footer-contact-info">
+                                    <a href="tel:+994 51 548 05 05" class="formingHrefTel">+994 51 548 05 05</a>
+                                    <a href="tel:+994 51 548 05 05"></a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="material-icons md-22 footer-contact-email">email</i>
+                                <div class="footer-contact-info">
+                                    <a href="mailto:indikator.az@gmail.com">indikator.az@gmail.com</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-between items">
+
+                <div class="col-md-auto col-12 item">
+                    <div class="copyright">© Indikator.az 2021. Site by MAD Corporation.Bütün hüquqlar qorunur.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- End footer -->
+<script src="/static/app/js/jquery_003.js"></script>
+<script src="/static/app/js/lozad.js"></script>
+<script src="/static/app/js/custom.js"></script>
+<div class="mf-bg"></div>
+<div class="btn-top"></div>
 </body>
 
 </html>

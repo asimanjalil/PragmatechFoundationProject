@@ -95,7 +95,7 @@
                                                         <ul class="list-style-none card-page-meta">
                                                             <li>
                                                                 <b>Məhsullar:</b>
-                                                                <div><a href="/products">{{product.product_category}}</a>
+                                                                <div><a href="/category/{{Categories.query.filter_by(id=product.category_id).first().categories_name}}">{{Categories.query.filter_by(id=product.category_id).first().categories_name}}</a>
                                                                 </div>
                                                             </li>
                                                             <li>
@@ -123,105 +123,37 @@
 						<div class="col-12">
 							<h4>Oxşar məhsullar</h4>
 						</div>
-						<div class="col-lg-3 col-sm-6 card-item">
-							<!-- Begin card -->
-							<div class="item-style card">
-								<header class="card-header">
-									<a href="#" class="card-image">
-										<img  class="lazy" src="/img/Products Image/Petro Canada ATF Dexron VI.jpg" alt="" data-loaded="true">
-									</a>
-									<div class="card-badges">
-										<div class="card-badge card-badge-sale">Endirim</div>
-									</div>
-								</header>
-								<div class="card-info">
-									<div class="card-posted-in">
-										<a href="#!" class="card-category" title="Transmissiya &amp; yağları">Transmissiya yağları</a>
-									</div>
-									<h3 class="item-heading card-title">
-										<a href="№" title="Meguin">Meguin</a>
-									</h3>
-									<div class="card-prices">
-										<div class="card-price">15AZN</div>
-									</div>
-								</div>
-							</div><!-- End card -->
-						</div>
-						<div class="col-lg-3 col-sm-6 card-item">
-							<!-- Begin card -->
-							<div class="item-style card">
-								<header class="card-header">
-									<a href="#" class="card-image">
-										<img  class="lazy" src="/img/Products Image/Amsoil Premium Protection 10W-40.jpg" alt="" data-loaded="true">
-									</a>
-									
-									<div class="card-badges">
-										<div class="card-badge card-badge-sale">Endirim</div>
-									</div>
-								</header>
-								<div class="card-info">
-									<div class="card-posted-in">
-										<a href="#!" class="card-category" title="Transmissiya &amp; yağları">Transmissiya yağları</a>
-									</div>
-									<h3 class="item-heading card-title">
-										<a href="№" title="Meguin">amsoil</a>
-									</h3>
-									<div class="card-prices">
-										<div class="card-price">25AZN</div>
-									</div>
-								</div>
-							</div><!-- End card -->
-						</div>
-						<div class="col-lg-3 col-sm-6 card-item">
-							<!-- Begin card -->
-							<div class="item-style card">
-								<header class="card-header">
-									<a href="#" class="card-image">
-										<img  class="lazy" src="/img/Products Image/Liqui Molly Direkt Injection Reiniger.jpg" alt="" data-loaded="true">
-									</a>
-									
-									<div class="card-badges">
-										<div class="card-badge card-badge-new">Yeni</div>
-									</div>
-								</header>
-								<div class="card-info">
-									<div class="card-posted-in">
-										<a href="#!" class="card-category" title="Transmissiya &amp; yağları">Transmissiya yağları</a>
-									</div>
-									<h3 class="item-heading card-title">
-										<a href="№" title="Meguin">Liqui Moly</a>
-									</h3>
-									<div class="card-prices">
-										<div class="card-price">15AZN</div>
-									</div>
-								</div>
-							</div><!-- End card -->
-						</div>
-						<div class="col-lg-3 col-sm-6 card-item">
-							<!-- Begin card -->
-							<div class="item-style card">
-								<header class="card-header">
-									<a href="#" class="card-image">
-										<img  class="lazy" src="/img/Products Image/Petro Canada ATF Dexron VI.jpg" alt="" data-loaded="true">
-									</a>
-									
-									<div class="card-badges">
-										<div class="card-badge card-badge-sale">Endirim</div>
-									</div>
-								</header>
-								<div class="card-info">
-									<div class="card-posted-in">
-										<a href="#!" class="card-category" title="Transmissiya &amp; yağları">Transmissiya yağları</a>
-									</div>
-									<h3 class="item-heading card-title">
-										<a href="№" title="Meguin">Petro Canada</a>
-									</h3>
-									<div class="card-prices">
-										<div class="card-price">15AZN</div>
-									</div>
-								</div>
-							</div><!-- End card -->
-						</div><!-- End card -->
+                        {% if Categories.query.filter_by(id=product.category_id).first() %}
+                        
+                       {% for similar_product in Products.query.filter_by(category_id=product.category_id) if similar_product.id!=product.id %}
+                       
+
+                       <div class="col-lg-3 col-sm-6 card-item">
+                        <!-- Begin card -->
+                        <div class="item-style card">
+                            <header class="card-header">
+                                <a href="#" class="card-image">
+                                    <img  class="lazy" src="/static/uploads/{{similar_product.product_img}}" alt="" data-loaded="true">
+                                </a>
+                                <div class="card-badges">
+                                    <div class="card-badge card-badge-sale">Endirim</div>
+                                </div>
+                            </header>
+                            <div class="card-info">
+                                <div class="card-posted-in">
+                                    <a href="#!" class="card-category" title="Transmissiya &amp; yağları">{{Categories.query.filter_by(id=similar_product.category_id).first().categories_name}}</a>
+                                </div>
+                                <h3 class="item-heading card-title">
+                                    <a href="№" title="Meguin">{{similar_product.product_name}}</a>
+                                </h3>
+                                <div class="card-prices">
+                                    <div class="card-price">{{similar_product.product_price}}</div>
+                                </div>
+                            </div>
+                        </div><!-- End card -->
+                    </div>
+                       {% endfor %}
+                        {% endif %}
 						</div>
 					</div>
                 </div>

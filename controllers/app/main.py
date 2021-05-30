@@ -1,6 +1,9 @@
 from run import app
 from flask import render_template,redirect,request
-from models import Post
+from models import Post,Categories
+@app.context_processor
+def inject_user():
+    return dict(categories=Categories.query.all())
 @app.route('/')
 def main_index():
     from models import Post
@@ -17,13 +20,13 @@ def about_index():
 def products_index():
     from models import Products
     products=Products.query.all()
-    return render_template('app/products.html',products=products)
+    return render_template('app/products.html',products=products,Categories=Categories,Products=Products)
 
 @app.route('/products_ext/<id>',methods=['GET','POST'] )
 def products_ext_index(id):
     from models import Products
     product=Products.query.get(id)
-    return render_template('app/products_ext.html',product=product)
+    return render_template('app/products_ext.html',product=product,Categories=Categories,Products=Products)
 
 @app.route('/choose')
 def choose_index():
@@ -54,3 +57,10 @@ def contact_index():
     from models import Post
     posts=Post.query.all()
     return render_template('app/contact.html',posts=posts)
+
+@app.route('/category/<int:id>')
+def category(id):
+    from models import Products
+   
+    selected_category=Categories.query.get(id)
+    return render_template('app/category.html',Products=Products,selected_category=selected_category,Categories=Categories)

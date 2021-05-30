@@ -1,0 +1,48 @@
+{% extends "admin/base.html" %}
+{% block content %}
+
+<section class="add-category">
+
+
+<form action="/admin/categories" method="POST">
+<input type="text"  class="form-control" name="category_name">
+<button type="submit" class="btn btn-primary">Əlavə et</button> 
+
+</form>
+</section>
+<section class="all-categories">
+
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Kateqoriya adı</th>
+            <th scope="col">Əməliyyatlar</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+            
+           
+          <tr>
+            <th scope="row">{{category.id}}</th>
+            <td>{{category.categories_name}}</td>
+            <td>
+                <a href="/admin/categories/delete/{{category.id}}">Sil</a>
+                <a href="">Yenilə</a>
+            </td>
+           
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+</section>
+
+
+
+
+
+{% endblock %}

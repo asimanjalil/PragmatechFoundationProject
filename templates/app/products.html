@@ -63,17 +63,11 @@
                             <div class="mob-main-submnu">
                                 <div class="mob-main-submnu-item">
                                     <ul>
-                                        <li><a href="#">Mühərrik və
-                                                transmissiya yağları</a></li>
-                                        <li><a href="#">Ehtiyat hissələri</a>
-                                        </li>
-                                        <li><a href="#">Avtokosmetika</a>
-                                        </li>
-                                        <li><a href="#">Akkumlyatorlar</a>
-                                        </li>
-                                        <li><a href="#">Qatqılar</a>
-                                        </li>
-                                        <li><a href="#">Digər</a></li>
+                                        {% for category in categories %}
+                                        <li><a href="/category/{{category.id}}">{{category.categories_name}}</a></li>
+                                        {% endfor %}
+                                        
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -189,21 +183,12 @@
                                                         <i class="fas fa-chevron-down"></i>
                                                     </a>
                                                     <ul>
-                                                        <li><a href="#"
-                                                                data-title="Mühərrik və transmissiya yağları"><span>Mühərrik
-                                                                    və transmissiya yağları</span></a></li>
-                                                        <li><a href="#" data-title="Ehtiyat hissələri"><span>Ehtiyat
-                                                                    hissələri</span></a></li>
-                                                        <li><a href="#"
-                                                                data-title="Avtokosmetika"><span>Avtokosmetika</span></a>
-                                                        </li>
+                                                        {% for category in categories %}
+                                                        <li><a href="/category/{{category.id}}"
+                                                            data-title="{{category.categories_name}}"><span>{{category.categories_name}}</span></a></li>
+                                                        {% endfor %}
                                                         
-                                                        <li><a href="#"
-                                                                data-title="Akkumlyatorlar"><span>Akkumlyatorlar</span></a>
-                                                        </li>
-                                                        <li><a href="#" data-title="Qatqılar"><span>Qatqılar</span></a>
-                                                        </li>
-                                                        <li><a href="#" data-title="Digər"><span>Digər</span></a></li>
+                                                        
                                                     </ul>
                                                 </li>
                                                 <li class="main-mnu-item-has-child open main-mnu-item-mega-mnu">
@@ -382,107 +367,21 @@
                                     <p class="sidebar-item-title item-heading">Məhsullarımız</p>
                                     <ul class="sidebar-cat hl-list sidebar-cat-tree">
                                         
+                                        {% for category in categories %}
                                         <li class="sidebar-cat-item sidebar-cat-item-has-child ">
-                                            <a href="#!" class="sidebar-cat-link hover-link"
+                                            <a href="/products/category/" class="sidebar-cat-link hover-link"
                                                 data-title="engine_transmission_oils">
-                                                <span><strong>Mühərrik və transmissiya yağları</strong></span>
+                                                <span><strong>{{category.categories_name}}</strong></span>
                                                 <i class="material-icons md-22 sidebar-cat-icon">chevron_right</i>
                                             </a>
                                             <ul style="display: none;">
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Opet"><span>Opet</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Ravenol"><span>Ravenol</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Meguin"><span>Meguin</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Amsoil"><span>Amsoil</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Petro Canada"><span>Petro Canada</span></a></li>
-                                                <li><a href="#!" class="hover-link" data-title="Liqui Moly"><span>Liqui
-                                                            Moly</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Alpine"><span>Alpine</span></a></li>
+                                                <!-- <li><a href="/products/category/{{product_category}}" class="hover-link"
+                                                        data-title="Opet"><span>Opet</span></a></li> -->
+                                                
                                             </ul>
                                         </li>
-                                        <li class="sidebar-cat-item sidebar-cat-item-has-child">
-                                            <a href="#!" class="sidebar-cat-link hover-link" data-title="spare_parts">
-                                                <span><strong>Ehtiyat hissələri</strong></span>
-                                                <i class="material-icons md-22 sidebar-cat-icon">chevron_right</i>
-                                            </a>
-                                            <ul style="display: none;">
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Əyləc qəlibləri"><span>Əyləc qəlibləri</span></a>
-                                                </li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Əyləc diskləri"><span>Əyləc diskləri</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Alışdırma şamları"><span>Alışdırma
-                                                            şamları</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Filtrlər"><span>Filtrlər</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Qranatlar"><span>Qranatlar</span></a></li>
-                                                <li><a href="#!" class="hover-link" data-title="Asqı sistemi"><span>Asqı
-                                                            sistemi</span></a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="sidebar-cat-item sidebar-cat-item-has-child">
-                                            <a href="#!" class="sidebar-cat-link hover-link" data-title="Autocosmetics">
-                                                <span><strong>Avtokosmetika</strong></span>
-                                                <i class="material-icons md-22 sidebar-cat-icon">chevron_right</i>
-                                            </a>
-                                            <ul style="display: none;">
-                                                <li><a href="#!" class="hover-link" data-title="K2"><span>K2</span></a>
-                                                </li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="MojeAuto"><span>MojeAuto</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Areon"><span>Areon</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Aroma"><span>Aroma</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Dr.Marcus"><span>Dr.Marcus</span></a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="sidebar-cat-item sidebar-cat-item-has-child">
-                                            <a href="#!" class="sidebar-cat-link hover-link" data-title="Batteries">
-                                                <span><strong>Akkumlyatorlar</strong></span>
-                                                <i class="material-icons md-22 sidebar-cat-icon">chevron_right</i>
-                                            </a>
-                                            <ul style="display: none;">
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Varta"><span>Varta</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="İnci"><span>İnci</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Gigawatt"><span>Gigawatt</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Bosch"><span>Bosch</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Gladiator"><span>Gladiator</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Sputnik"><span>Sputnik</span></a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="sidebar-cat-item sidebar-cat-item-has-child">
-                                            <a href="#!" class="sidebar-cat-link hover-link" data-title="Contribution">
-                                                <span><strong>Qatqılar</strong></span>
-                                                <i class="material-icons md-22 sidebar-cat-icon">chevron_right</i>
-                                            </a>
-                                            <ul style="display: none;">
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Varta"><span>Amsoil</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="İnci"><span>Alpine</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Gigawatt"><span>Coolstream</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Bosch"><span>Ravenol</span></a></li>
-                                                <li><a href="#!" class="hover-link"
-                                                        data-title="Gladiator"><span>Meguin</span></a></li>
-                                            </ul>
-                                        </li>
+                                        {% endfor %}
+                                        
 
                                     </ul>
                                 </div>
@@ -507,10 +406,9 @@
                                                 <div class="{{product.product_sale}}">{{product.product_sale_name}}</div>
                                             </div>
                                         </header>
-                                        <div class="card-info">
-                                            <div class="card-posted-in">
-                                                <a href="#" class="card-category"
-                                                    title="{{product.product_category}}">{{product.product_category}}</a>
+                                        <div class="card-info"> 
+                                            <div class="card-posted-in" title="{{Categories.query.filter_by(id=product.category_id).first().categories_name}}">
+                                                <a href="/category/{{Categories.query.filter_by(id=product.category_id).first().categories_name}}"><span >{{Categories.query.filter_by(id=product.category_id).first().categories_name}}</span></a>
                                             </div>
                                             <h3 class="item-heading card-title">
                                                 <a href="products_ext/{{product.id}}" title="{{product.product_name}}">{{product.product_name}}</a>
@@ -560,7 +458,7 @@
                     <!-- Begin company info -->
                     <div class="footer-company-info">
                         <div class="footer-company-top">
-                            <a href="#" class="logo logo-ico-widht-text" title="Indikator">
+                            <a href="/" class="logo logo-ico-widht-text" title="Indikator">
                                 <img class="lazy logo-ico" src="/static/app/logo/indikator-logo.png" alt="" width="36"
                                     height="35"
                                     style="height: 75px;width: 175px;margin-left: 40px; ">
@@ -609,15 +507,15 @@
                         <h4 class="footer-item-title">Yararlı linklər</h4>
                         <nav class="footer-nav">
                             <ul class="footer-mnu">
-                                <li><a href="about.html" class="hover-link"
+                                <li><a href="/about" class="hover-link"
                                         data-title="About Us"><span>Haqqımızda</span></a></li>
-                                <li><a href="products.html" class="hover-link"
+                                <li><a href="/products" class="hover-link"
                                         data-title="Services"><span>Məhsullar</span></a></li>
-                                <li><a href="news.html" class="hover-link"
+                                <li><a href="/news" class="hover-link"
                                         data-title="News"><span>Xəbərlər</span></a></li>
-                                        <li><a href="gallery.html" class="hover-link"
+                                        <li><a href="/gallery" class="hover-link"
                                             data-title="Gallery"><span>Qalereya</span></a></li>
-                                <li><a href="contact.html" class="hover-link"
+                                <li><a href="/contact" class="hover-link"
                                         data-title="Contact Us"><span>Əlaqə</span></a></li>
                             </ul>
                         </nav>
@@ -627,19 +525,10 @@
                     <div class="footer-item">
                         <h4 class="footer-item-title">Məhsullar</h4>
                         <nav class="footer-nav">
-                            <ul class="footer-mnu">
-                                <li><a href="#!" class="hover-link" ><span>Mühərrik və
-                                            transmissiya yağları</span></a></li>
-                                <li><a href="#!" class="hover-link" ><span>Ehtiyat
-                                            hissələri</span></a></li>
-                                <li><a href="#!" class="hover-link"
-                                        ><span>Avtokosmetika</span></a></li>
-                                <li><a href="#!" class="hover-link"
-                                        ><span>Akkumlyatorlar</span></a></li>
-                                <li><a href="#!" class="hover-link"
-                                        ></a><span>Qatqılar</span></a></li>
-                                <li><a href="#!" class="hover-link"
-                                        ><span>Digər</span></a></li>
+                            <ul>
+                                {% for category in categories %}
+                                <li class="footer-item-nav-title"><a href="/category/{{category.id}}">{{category.categories_name}}</a></li>
+                                {% endfor %}
                             </ul>
                         </nav>
                     </div>
@@ -668,20 +557,6 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
-                    <div class="footer-item">
-                        <h4 class="footer-item-title">Bizi izlə</h4>
-                        <form action="#!" method="post" class="footer-subscribe" novalidate="novalidate">
-                            <div class="form-field">
-                                <label for="subscribe-email" class="form-field-label">Mail adresiniz</label>
-                                <input type="email" class="form-field-input" name="Subscribe_email"
-                                    autocomplete="off" required="required" id="subscribe-email">
-                            </div>
-                            <div class="form-btn">
-                                <button type="submit" class="btn ripple"><span>İzlə</span><span
-                                        class="el-ripple-circle"></span></button>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>

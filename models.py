@@ -7,19 +7,25 @@ class Post(db.Model):
     post_img=db.Column(db.String(50))
     post_info=db.Column(db.String(50))
     post_description=db.Column(db.Text)
+
+class Categories(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    categories_name=db.Column(db.String(100))
+    products=db.relationship('Products', backref='categories', lazy=True)    
     
 class Products(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     product_sale=db.Column(db.String(50))
     product_sale_name=db.Column(db.String(20))
-    product_category=db.Column(db.String(100))
-    product_sub_category=db.Column(db.String(50))
+    category_id=db.Column(db.Integer,db.ForeignKey('categories.id'))
+   
     product_img=db.Column(db.String(50))
     product_name=db.Column(db.String(50))
     product_price=db.Column(db.String(50))
     product_simple_description=db.Column(db.Text)
     product_details_description=db.Column(db.Text)
     product_old_price=db.Column(db.String(50))
+
 
 
 class Similar_products(db.Model):

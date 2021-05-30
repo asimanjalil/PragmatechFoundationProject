@@ -6250,12 +6250,18 @@ body.mob-main-mnu-open .mob-main-mnu {
 .footer-item:last-child {
     margin-bottom: 0;
 }
+.footer-item-nav-title{
+    margin-bottom: 10px;
+}
 
 .footer-item-title {
     font-size: 1.125rem;
     margin-bottom: 1.25rem;
     opacity: 0.9;
     font-weight: bold;
+}
+.footer-item-title .footer-nav ul li{
+    margin-bottom: 10px;
 }
 
 .footer-mnu li {
