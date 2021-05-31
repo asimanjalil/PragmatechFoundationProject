@@ -1,48 +1,42 @@
 {% extends "admin/base.html" %}
 {% block content %}
-
+{% if selected_category %}
+<section class="update-category">
+  <h2>"{{selected_category.categories_name}}" adlı kateqoriyanı dəyişdir</h2>
+  <form action="/admin/categories/edit/{{selected_category.id}}" method="POST">
+  <input type="text"  class="form-control" name="category_name" value="{{selected_category.categories_name}}" >
+  <button type="submit" class="btn btn-primary">Dəyişdir</button> 
+  </form>
+{% else %}
 <section class="add-category">
-
-
-<form action="/admin/categories" method="POST">
-<input type="text"  class="form-control" name="category_name">
-<button type="submit" class="btn btn-primary">Əlavə et</button> 
-
-</form>
-</section>
+  <h2>Kateqoriya əlavə et</h2>
+  <form action="/admin/categories" method="POST">
+  <input type="text"  class="form-control" name="category_name">
+  <button type="submit" class="btn btn-primary">Əlavə et</button> 
+  </form>
+  </section>
 <section class="all-categories">
-
-
     <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Kateqoriya adı</th>
-            <th scope="col">Əməliyyatlar</th>
-            
+            <th scope="col">Əməliyyatlar</th>            
           </tr>
         </thead>
         <tbody>
-            {% for category in categories %}
-            
-           
+            {% for category in categories %}                     
           <tr>
             <th scope="row">{{category.id}}</th>
             <td>{{category.categories_name}}</td>
             <td>
                 <a href="/admin/categories/delete/{{category.id}}">Sil</a>
-                <a href="">Yenilə</a>
-            </td>
-           
+                <a href="/admin/categories/edit/{{category.id}}">Yenilə</a>
+            </td>           
           </tr>
-          {% endfor %}
-          
+          {% endfor %}          
         </tbody>
       </table>
 </section>
-
-
-
-
-
+{% endif %}
 {% endblock %}

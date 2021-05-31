@@ -1,4 +1,20 @@
-{% extends "admin/base.html" %} {% block content %}
+{% extends "admin/base.html" %} 
+{% block content %}
+{% if selected_news %}
+<section class="update-news">
+  <h2>"{{selected_news.post_title}}" adlı xəbəri dəyişdir</h2>
+  <form action="/admin/news/edit/{{selected_news.id}}" method="POST">
+  <input type="text"  class="form-control" name="post_title" value="{{selected_news.post_title}}" placeholder="Xəbərin başlığını dəyişmək">
+  <input type="date" name="post_time" class="form-control my-2" placeholder="Xəbərin zamanı" value="{{selected_news.post_time}}">
+  <div class="form-group col-sm-4">
+    <label for="ccmonth" style="margin-top:10px">Məhsulun şəklini dəyişmək</label>
+    <input type="file" name="post_img" class="form-control my-2" placeholder="Məhsulun şəkli" value="{{selected_news.post_img}}">
+  </div>
+  <input type="text" name="post_info" class="form-control my-2" placeholder="Xəbərin ilkin məlumatını dəyişmək" value="{{selected_news.post_info}}">
+  <textarea name="post_description" class='form-control my-2' cols="30" rows="5" placeholder="Xəbərin geniş məlumatı" value="{{selected_news.post_description}}" ></textarea>
+  <button type="submit" class="btn btn-primary">Dəyişdir</button> 
+  </form>
+{% else %}
 <h3 class="my-2">Xəbər əlavə et</h3>
 <form action="/admin/news"method='POST' enctype="multipart/form-data">
     <input type="text" name="post_title" class="form-control my-2" placeholder="Xəbər başlığı">
@@ -7,11 +23,11 @@
         <label for="ccmonth" style="margin-top:10px">Məhsulun şəkli</label>
         <input type="file" name="post_img" class="form-control my-2" placeholder="Məhsulun şəkli">
       </div>
-
-    <input type="text" name="post_info" class="form-control my-2" placeholder="Xəbərin məlumatı">
+    <input type="text" name="post_info" class="form-control my-2" placeholder="Xəbərin ilkin məlumatı">
     <textarea name="post_description" class='form-control my-2' cols="30" rows="5" placeholder="Xəbərin geniş məlumatı"></textarea>
     <input type="submit"  class="btn btn-primary my-2" value="Əlavə et">
 </form>
+
 <h3 class="my-2">Xəbərlər</h3>
 <table class="table">
     <thead>
@@ -28,11 +44,12 @@
             <td>{{post.post_title}}</td>
             <td>
                 <a href="/admin/news/delete/{{post.id}}">Sil</a>
-                <a href="#">Yenilə</a>
+                <a href="/admin/news/edit/{{post.id}}">Yenilə</a>
             </td>
         </tr>
         
         {% endfor %}
     </tbody>
 </table>
+{% endif %}
 {% endblock %}

@@ -53,3 +53,23 @@ def delete_product(id):
         return render_template('admin/products.html',products=products,categories=categories,Categories=Categories)
     else:
         return redirect(url_for('login'))
+
+@app.route("/admin/products/edit/<id>",methods=["GET","POST"])
+def edit_products(id):
+    selected_products=Products.query.get(id)
+    products=Products.query.all()
+    if request.method=="POST":
+        selected_products.product_sale=request.form["product_sale"]
+        selected_products.product_sale_name=request.form["product_sale_name"]
+        selected_products.product_name=request.form["product_name"]
+        selected_products.product_price=request.form["product_price"]
+        selected_products.product_simple_description=request.form["product_simple_description"]
+        selected_products.product_details_description=request.form["product_details_description"]
+        selected_products.product_img=request.form["product_img"]
+        db.session.commit()
+        return redirect('/admin/products')
+    adminLoginStat = request.cookies.get('adminLoginStatus')
+    if adminLoginStat=='beli':
+        return render_template("admin/products.html",product=products,selected_products=selected_products)
+    else:
+        return redirect(url_for('login'))

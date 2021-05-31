@@ -1,5 +1,6 @@
 from run import app
 from models import Post
+from run import db
 import os
 from flask import render_template,redirect,request,url_for
 from werkzeug.utils import secure_filename
@@ -44,6 +45,24 @@ def delete_news(id):
     adminLoginStat = request.cookies.get('adminLoginStatus')
     if adminLoginStat=='beli':
         return render_template('admin/news.html',posts=posts)
+    else:
+        return redirect(url_for('login'))
+
+@app.route("/admin/news/edit/<id>",methods=["GET","POST"])
+def edit_news(id):
+    selected_news=Post.query.get(id)
+    posts=Post.query.all()
+    if request.method=="POST":
+        selected_news.post_title=request.form["post_title"]
+        selected_news.post_time=request.form["post_time"]
+        selected_news.post_info=request.form["post_info"]
+        selected_news.post_description=request.form["post_description"]
+        selected_news.post_img=request.form["post_img"]
+        db.session.commit()
+        return redirect('/admin/news')
+    adminLoginStat = request.cookies.get('adminLoginStatus')
+    if adminLoginStat=='beli':
+        return render_template("admin/news.html",post=posts,selected_news=selected_news)
     else:
         return redirect(url_for('login'))
 

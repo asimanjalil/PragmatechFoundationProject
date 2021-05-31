@@ -132,7 +132,7 @@
                         <!-- Begin card -->
                         <div class="item-style card">
                             <header class="card-header">
-                                <a href="#" class="card-image">
+                                <a href="/products_ext/{{product.id}}" class="card-image">
                                     <img  class="lazy" src="/static/uploads/{{similar_product.product_img}}" alt="" data-loaded="true">
                                 </a>
                                 <div class="card-badges">
@@ -141,10 +141,10 @@
                             </header>
                             <div class="card-info">
                                 <div class="card-posted-in">
-                                    <a href="#!" class="card-category" title="Transmissiya &amp; yağları">{{Categories.query.filter_by(id=similar_product.category_id).first().categories_name}}</a>
+                                    <a href="/category/{{product.category_id}}" class="card-category" title="{{Categories.query.filter_by(id=similar_product.category_id).first().categories_name}}">{{Categories.query.filter_by(id=similar_product.category_id).first().categories_name}}</a>
                                 </div>
                                 <h3 class="item-heading card-title">
-                                    <a href="№" title="Meguin">{{similar_product.product_name}}</a>
+                                    <a href="/products_ext/{{product.id}}" title="{{similar_product.product_name}}">{{similar_product.product_name}}</a>
                                 </h3>
                                 <div class="card-prices">
                                     <div class="card-price">{{similar_product.product_price}}</div>

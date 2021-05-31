@@ -1084,6 +1084,15 @@ blockquote footer {
     margin: auto;
     transform: rotate(-90deg);
 }
+.btn-gallery img {
+    max-width: 300px;
+    height: auto;
+  }
+/* #hidden {
+    overflow: hidden;
+    display: none;
+    visibility: hidden;
+  } */
 .icon-style-btn{
     font-size: 40px;
     position: relative;

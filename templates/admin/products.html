@@ -1,5 +1,30 @@
-{% extends "admin/base.html" %} {% block content %}
-
+{% extends "admin/base.html" %}
+ {% block content %}
+ {% if selected_products %}
+ <section class="update-products">
+   <h2>"{{selected_products.product_name}}" adlı məhsulu dəyişdir</h2>
+   <form action="/admin/products/edit/{{selected_products.id}}" method="POST">
+    <div class="form-group col-sm-4">
+        <label for="ccmonth">Endirim məlumatını dəyişmək</label>
+        <select class="form-control" name="product_sale" value="{{selected_products.product_sale}}">
+            <option >card-badge card-badge-new </option>
+            <option>card-badge card-badge-sale</option>
+            <option>card-badge card-badge-rec</option>
+        </select>
+        <select class="form-control" name="product_sale_name" value="{{selected_products.product_sale_name}}">
+            <option >Yeni</option>
+            <option>Endirim</option>
+            <option>Tövsiyyə</option>
+        </select>
+        <label for="ccmonth" style="margin-top:10px">Məhsulun şəkli</label>
+        <input type="file" name="product_img" class="form-control my-2" placeholder="Məhsulun şəkli" value="{{selected_products.product_img}}">
+    </div>
+   <input type="text"  class="form-control" name="product_name" value="{{selected_products.product_name}}" placeholder="Məhsulun adını dəyişmək">
+   <input class="form-control my-2" name="product_price" type="text" placeholder="Endirimli qiymət" value="{{selected_products.product_price}}">
+   <input class="form-control my-2" name="product_old_price" type="text" placeholder="Qiymət" value="{{selected_products.product_old_price}}">
+   <button type="submit" class="btn btn-primary">Dəyişdir</button> 
+   </form>
+ {% else %}
 <h3 class="my-2">Məhsul əlavə et</h3>
 <form action="/admin/products"method='POST' enctype="multipart/form-data">
     <div class="form-group col-sm-4">
@@ -48,6 +73,7 @@
         <tr>
             <th>#</th>
             <th>Məhsul adı</th>
+            <th>Kateqoriyalar</th>
             <th>Əməliyyatlar</th>
         </tr>
     </thead>
@@ -60,11 +86,12 @@
             <td>{{Categories.query.filter_by(id=product.category_id).first().categories_name}}</td>
             <td>
                 <a href="/admin/products/delete/{{product.id}}">Sil</a>
-                <a href="#">Yenilə</a>
+                <a href="/admin/products/edit/{{product.id}}">Yenilə</a>
             </td>
         </tr>
         
         {% endfor %}
     </tbody>
 </table>
+{% endif %}
 {% endblock %}

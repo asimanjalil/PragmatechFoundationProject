@@ -36,10 +36,6 @@ class Products(db.Model):
     product_details_description=db.Column(db.Text)
     product_old_price=db.Column(db.String(50))
 
-
-
-
-    
 class Gallery_img(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     gallery_title=db.Column(db.String(50))

@@ -21,8 +21,6 @@ def brands():
 
 @app.route('/admin/brand/delete/<id>')
 def delete_brand(id):
-    from models import Brands
-    from run import db
     user=Brands.query.get(id)
     db.session.delete(user)
     db.session.commit()
