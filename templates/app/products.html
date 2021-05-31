@@ -408,7 +408,7 @@
                                         </header>
                                         <div class="card-info"> 
                                             <div class="card-posted-in" title="{{Categories.query.filter_by(id=product.category_id).first().categories_name}}">
-                                                <a href="/category/{{Categories.query.filter_by(id=product.category_id).first().categories_name}}"><span >{{Categories.query.filter_by(id=product.category_id).first().categories_name}}</span></a>
+                                                <a href="/category/{{product.category_id}}"><span >{{Categories.query.filter_by(id=product.category_id).first().categories_name}}</span></a>
                                             </div>
                                             <h3 class="item-heading card-title">
                                                 <a href="products_ext/{{product.id}}" title="{{product.product_name}}">{{product.product_name}}</a>

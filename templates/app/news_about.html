@@ -15,7 +15,7 @@
                                     <i class="material-icons md-18">chevron_right</i>
                                 </li>
                                 <li>
-                                    <a href="news">Xəbərlər</a>
+                                    <a href="/news">Xəbərlər</a>
                                     <i class="material-icons md-18">chevron_right</i>
                                 </li>
                                 <li><a href="#!">{{post.post_title}}</a></li>
@@ -48,7 +48,7 @@
                     <section class="section">
                         <div class="row items">
                             <div class="col-12">
-                                <h4>Recent Posts</h4>
+                                <h4>Ən son xəbərlər</h4>
                             </div>
                            
                             {% for post_ in reverse_post[:2] %}
@@ -67,7 +67,7 @@
                                     <div class="news-item-info">
                                         <div class="news-item-date">{{post_.post_time}}</div>
                                         <h4 class="news-item-title item-heading">
-                                            <a href="#" title="Benefits Of Async/Await">
+                                            <a href="#" title="{{post_.post_title}}">
                                                 {{post_.post_title}}
                                         </h4>
                                         <div class="news-item-desc">

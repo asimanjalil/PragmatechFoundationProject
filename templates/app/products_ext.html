@@ -17,7 +17,7 @@
                                     <i class="material-icons md-18">chevron_right</i>
                                 </li>
                                 <li>
-                                    <a href="/products">{{product.product_category}}</a>
+                                    <a href="/category/{{product.category_id}}">{{Categories.query.filter_by(id=product.category_id).first().categories_name}}</a>
                                     <i class="material-icons md-18">chevron_right</i>
                                 </li>
                                 <li>
@@ -95,7 +95,7 @@
                                                         <ul class="list-style-none card-page-meta">
                                                             <li>
                                                                 <b>Məhsullar:</b>
-                                                                <div><a href="/category/{{Categories.query.filter_by(id=product.category_id).first().categories_name}}">{{Categories.query.filter_by(id=product.category_id).first().categories_name}}</a>
+                                                                <div><a href="/category/{{product.category_id}}">{{Categories.query.filter_by(id=product.category_id).first().categories_name}}</a>
                                                                 </div>
                                                             </li>
                                                             <li>
