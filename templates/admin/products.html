@@ -25,6 +25,11 @@
                {% endfor %}
             </select>
             <select class="form-control" name="product_brand">
+                {% for brand  in brands %}
+                <option value="{{brand.id}}">{{brand.brands_name}}</option>
+
+                {% endfor %}
+              
                </select>
             <input type="text" name="product_name" class="form-control my-2" placeholder="Məhsulun adı">
             <input class="form-control my-2" name="product_price" type="text" placeholder="Endirimli qiymət">

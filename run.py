@@ -27,6 +27,8 @@ from controllers.admin.main import *
 from controllers.admin.gallery import *
 from controllers.admin.main_page import *
 from controllers.admin.category import *
+from controllers.auth.routes import *
+from controllers.admin.brand import *
 from models import *
 db.create_all()
 if __name__=='__main__':

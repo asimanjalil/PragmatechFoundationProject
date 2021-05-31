@@ -1,18 +1,18 @@
 from run import app
 from flask import render_template,redirect,request
-from models import Post,Categories
+from models import *
 @app.context_processor
 def inject_user():
-    return dict(categories=Categories.query.all())
+    return dict(categories=Categories.query.all(),brands=Brands.query.all(),Brands=Brands,Products=Products)
 @app.route('/')
 def main_index():
-    from models import Post
+   
     posts=Post.query.all()
     return render_template('app/index.html',posts=posts)
 
 @app.route('/about')
 def about_index():
-    from models import Post
+  
     posts=Post.query.all()
     return render_template('app/about.html',posts=posts)
 
@@ -24,7 +24,7 @@ def products_index():
 
 @app.route('/products_ext/<id>',methods=['GET','POST'] )
 def products_ext_index(id):
-    from models import Products
+    
     product=Products.query.get(id)
     return render_template('app/products_ext.html',product=product,Categories=Categories,Products=Products)
 

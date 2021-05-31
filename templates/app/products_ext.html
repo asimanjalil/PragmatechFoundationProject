@@ -21,7 +21,7 @@
                                     <i class="material-icons md-18">chevron_right</i>
                                 </li>
                                 <li>
-                                    <a href="/products">{{product.product_sub_category}}</a>
+                                    <a href="/products">{{Brands.query.filter_by(id=product.brand_id).first().brands_name}}</a>
                                     <i class="material-icons md-18">chevron_right</i>
                                 </li>
                                 <li><a href="/products">{{product.product_name}}</a></li>
@@ -100,7 +100,7 @@
                                                             </li>
                                                             <li>
                                                                 <b>Məhsul:</b>
-                                                                <div><a href="/products">{{product.product_sub_category}}</a></div>
+                                                                <div><a href="/products">{{Brands.query.filter_by(id=product.brand_id).first().brands_name}}</a></div>
                                                             </li>
 
                                                         </ul>

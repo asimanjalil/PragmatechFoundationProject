@@ -2,7 +2,7 @@ from run import app
 from models import Categories
 from run import db
 import os
-from flask import render_template,redirect,request
+from flask import render_template,redirect,request,url_for
 
 @app.route("/admin/categories",methods=["GET","POST"])
 def add_and_show_categories():
@@ -12,8 +12,12 @@ def add_and_show_categories():
         category=Categories(categories_name=category_name)
         db.session.add(category)
         db.session.commit()
-        return redirect("/admin/categories")
-    return render_template("admin/category.html",categories=all_categories)
+        return redirect('/admin/categories')
+    adminLoginStat = request.cookies.get('adminLoginStatus')
+    if adminLoginStat=='beli':
+        return render_template("admin/category.html",categories=all_categories)
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/admin/categories/delete/<id>')
 def delete_category(id):
@@ -23,3 +27,8 @@ def delete_category(id):
     db.session.delete(user)
     db.session.commit()
     return redirect('/admin/categories')
+    adminLoginStat = request.cookies.get('adminLoginStatus')
+    if adminLoginStat=='beli':
+            return render_template("admin/category.html",categories=all_categories)
+    else:
+        return redirect(url_for('login'))

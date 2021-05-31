@@ -1,6 +1,6 @@
 from run import app
 import os
-from flask import render_template,redirect,request
+from flask import render_template,redirect,request,url_for
 from werkzeug.utils import secure_filename
 
 
@@ -21,7 +21,11 @@ def admin_gallery_index():
         db.session.add(gallery)
         db.session.commit()
         return redirect('/admin/gallery')
-    return render_template('admin/gallery.html',gallery_img=Gallery_img.query.all())
+    adminLoginStat = request.cookies.get('adminLoginStatus')
+    if adminLoginStat=='beli':
+        return render_template('admin/gallery.html',gallery_img=Gallery_img.query.all())
+    else:
+        return redirect(url_for('login'))
 @app.route('/admin/gallery/delete/<id>')
 def delete_gallery(id):
     from models import Gallery_img
@@ -30,3 +34,7 @@ def delete_gallery(id):
     db.session.delete(user)
     db.session.commit()
     return redirect('/admin/gallery')
+    if adminLoginStat=='beli':
+            return render_template('admin/gallery.html',gallery_img=Gallery_img.query.all())
+    else:
+        return redirect(url_for('login'))

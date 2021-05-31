@@ -1,13 +1,12 @@
 from run import app
 from models import Post
 import os
-from flask import render_template,redirect,request
+from flask import render_template,redirect,request,url_for
 from werkzeug.utils import secure_filename
 
 @app.route('/admin/news',methods=['GET','POST'])
 def admin_news_index():
     from run import db
-#    from models import Post
     posts=Post.query.all()
 
     if request.method=='POST':
@@ -27,7 +26,12 @@ def admin_news_index():
         db.session.add(post)
         db.session.commit()
         return redirect('/admin/news')
-    return render_template('admin/news.html',posts=posts)
+    adminLoginStat = request.cookies.get('adminLoginStatus')
+    if adminLoginStat=='beli':
+        return render_template('admin/news.html',posts=posts)
+    else:
+        return redirect(url_for('login'))
+
 
 @app.route('/admin/news/delete/<id>')
 def delete_news(id):
@@ -37,6 +41,11 @@ def delete_news(id):
     db.session.delete(user)
     db.session.commit()
     return redirect('/admin/news')
+    adminLoginStat = request.cookies.get('adminLoginStatus')
+    if adminLoginStat=='beli':
+        return render_template('admin/news.html',posts=posts)
+    else:
+        return redirect(url_for('login'))
 
 
 

@@ -183,10 +183,7 @@
                                                         <i class="fas fa-chevron-down"></i>
                                                     </a>
                                                     <ul>
-                                                        {% for category in categories %}
-                                                        <li><a href="/category/{{category.id}}"
-                                                            data-title="{{category.categories_name}}"><span>{{category.categories_name}}</span></a></li>
-                                                        {% endfor %}
+                                                       
                                                         
                                                         
                                                     </ul>
@@ -369,18 +366,31 @@
                                         
                                         {% for category in categories %}
                                         <li class="sidebar-cat-item sidebar-cat-item-has-child ">
-                                            <a href="/products/category/" class="sidebar-cat-link hover-link"
+                                            <a href="#!" class="sidebar-cat-link hover-link"
                                                 data-title="engine_transmission_oils">
                                                 <span><strong>{{category.categories_name}}</strong></span>
                                                 <i class="material-icons md-22 sidebar-cat-icon">chevron_right</i>
                                             </a>
+                                 
+                                            
+                                            
+                                           
                                             <ul style="display: none;">
-                                                <!-- <li><a href="/products/category/{{product_category}}" class="hover-link"
-                                                        data-title="Opet"><span>Opet</span></a></li> -->
+                                          
+                                                {% for brand in Brands.query.all() %}
+                                                {% for product in Products.query.filter_by(brand_id=brand.id,) %}
                                                 
+                                                {% endfor %}
+                                                <li><a href="#!" class="hover-link"
+                                                        data-title="{{brand.brands_name}}"><span>{{brand.brands_name}}</span></a></li>
+                                                
+                                                        {% endfor %}
                                             </ul>
+                                    
+                                           
                                         </li>
                                         {% endfor %}
+                                       
                                         
 
                                     </ul>

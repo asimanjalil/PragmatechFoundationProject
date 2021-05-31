@@ -1,0 +1,65 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<h1>Mən eyniyəm</h1>
+{% if selected_brand %}
+<h2>Mən update üçünəm</h2>
+<section class="update-brand">
+
+  <h2>"{{selected_brand.brands_name}}" adlı brendi dəyişdir</h2>
+  <form action="/admin/brand/edit/{{selected_brand.id}}" method="POST">
+  <input type="text"  class="form-control" name="brand_name" value="{{selected_brand.brands_name}}" >
+  <button type="submit" class="btn btn-primary">Dəyişdir</button> 
+  
+  </form>
+
+{% else %}
+
+<h2>Mən add üçünəm</h2>
+<section class="add-brand">
+
+  <h2>Brend əlavə et</h2>
+  <form action="/admin/brand" method="POST">
+  <input type="text"  class="form-control" name="brand_name">
+  <button type="submit" class="btn btn-primary">Əlavə et</button> 
+  
+  </form>
+  </section>
+
+{% endif %}
+
+<section class="all-brands">
+
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Brend adı</th>
+            <th scope="col">Əməliyyatlar</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for brand in brands %}
+            
+           
+          <tr>
+            <th scope="row">{{brand.id}}</th>
+            <td>{{brand.brands_name}}</td>
+            <td>
+                <a href="/admin/brand/delete/{{brand.id}}">Sil</a>
+                <a href="/admin/brand/edit/{{brand.id}}">Yenilə</a>
+            </td>
+           
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+</section>
+
+
+
+
+
+{% endblock %}
