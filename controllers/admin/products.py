@@ -19,8 +19,7 @@ def admin_products():
         filename=title+'.'+file_extention
         file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
         product=Products(
-            product_sale=request.form['product_sale'],
-            product_sale_name=request.form['product_sale_name'],
+            product_status=request.form['product_status'],
             category_id=request.form['product_category'],
             brand_id=request.form['product_brand'],
             product_name=request.form['product_name'],
@@ -59,13 +58,18 @@ def edit_products(id):
     selected_products=Products.query.get(id)
     products=Products.query.all()
     if request.method=="POST":
-        selected_products.product_sale=request.form["product_sale"]
-        selected_products.product_sale_name=request.form["product_sale_name"]
+        selected_products.product_status=request.form['product_status']
         selected_products.product_name=request.form["product_name"]
         selected_products.product_price=request.form["product_price"]
         selected_products.product_simple_description=request.form["product_simple_description"]
         selected_products.product_details_description=request.form["product_details_description"]
-        selected_products.product_img=request.form["product_img"]
+        file=request.files["product_img"]
+        filename=file.filename
+        title=secure_filename(request.form['product_name'])
+        file_extention=filename.split(".")[-1]
+        filename=title+'.'+file_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
+        selected_products.product_img=filename
         db.session.commit()
         return redirect('/admin/products')
     adminLoginStat = request.cookies.get('adminLoginStatus')

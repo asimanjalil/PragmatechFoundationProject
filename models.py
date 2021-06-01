@@ -24,11 +24,9 @@ class Categories(db.Model):
     
 class Products(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    product_sale=db.Column(db.String(50))
-    product_sale_name=db.Column(db.String(20))
+    product_status=db.Column(db.String(50))
     category_id=db.Column(db.Integer,db.ForeignKey('categories.id'))
     brand_id=db.Column(db.Integer,db.ForeignKey('brands.id'))
-   
     product_img=db.Column(db.String(50))
     product_name=db.Column(db.String(50))
     product_price=db.Column(db.String(50))

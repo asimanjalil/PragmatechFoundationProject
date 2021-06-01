@@ -4753,6 +4753,9 @@ align-items: center;
     display: flex;
     align-items: center;
 }
+.logo.logo-header{
+    margin-left: 30px;
+}
 
 .logo .logo-ico {
     margin-right: 10px;

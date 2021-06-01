@@ -64,3 +64,9 @@ def category(id):
    
     selected_category=Categories.query.get(id)
     return render_template('app/category.html',Products=Products,selected_category=selected_category,Categories=Categories)
+
+app.route('/brand/<int:id>')
+def brand(id):
+    from models import Products
+    selected_brand=Brands.query.get(id)
+    return render_template('app/brand.html',Products=Products,selected_brand=selected_brand,Categories=Categories)

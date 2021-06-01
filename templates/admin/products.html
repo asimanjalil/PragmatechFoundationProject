@@ -3,18 +3,15 @@
  {% if selected_products %}
  <section class="update-products">
    <h2>"{{selected_products.product_name}}" adlı məhsulu dəyişdir</h2>
-   <form action="/admin/products/edit/{{selected_products.id}}" method="POST">
+   <form action="/admin/products/edit/{{selected_products.id}}" method="POST" enctype="multipart/form-data">
     <div class="form-group col-sm-4">
-        <label for="ccmonth">Endirim məlumatını dəyişmək</label>
-        <select class="form-control" name="product_sale" value="{{selected_products.product_sale}}">
-            <option >card-badge card-badge-new </option>
-            <option>card-badge card-badge-sale</option>
-            <option>card-badge card-badge-rec</option>
-        </select>
-        <select class="form-control" name="product_sale_name" value="{{selected_products.product_sale_name}}">
-            <option >Yeni</option>
-            <option>Endirim</option>
-            <option>Tövsiyyə</option>
+        <label for="ccmonth">Endirim məlumatı</label>
+        <select class="form-control" name="product_status">
+        
+            <option value="simple" selected></option>
+            <option value="new" > Yeni</option>
+            <option value="sale">Endirimdə</option>
+            <option value="rec">Tövsiyyə olunan</option>
         </select>
         <label for="ccmonth" style="margin-top:10px">Məhsulun şəkli</label>
         <input type="file" name="product_img" class="form-control my-2" placeholder="Məhsulun şəkli" value="{{selected_products.product_img}}">
@@ -22,6 +19,8 @@
    <input type="text"  class="form-control" name="product_name" value="{{selected_products.product_name}}" placeholder="Məhsulun adını dəyişmək">
    <input class="form-control my-2" name="product_price" type="text" placeholder="Endirimli qiymət" value="{{selected_products.product_price}}">
    <input class="form-control my-2" name="product_old_price" type="text" placeholder="Qiymət" value="{{selected_products.product_old_price}}">
+   <textarea name="product_simple_description" class='form-control my-2' cols="30" rows="3" placeholder="Məhsulun ilkin məlumatı">{{selected_products.product_simple_description}}</textarea>
+   <textarea name="product_details_description" class='form-control my-2' cols="30" rows="5" placeholder="Məhsulun ətraflı məlumatı">{{selected_products.product_details_description}}</textarea>
    <button type="submit" class="btn btn-primary">Dəyişdir</button> 
    </form>
  {% else %}
@@ -29,15 +28,15 @@
 <form action="/admin/products"method='POST' enctype="multipart/form-data">
     <div class="form-group col-sm-4">
         <label for="ccmonth">Endirim məlumatı</label>
-        <select class="form-control" name="product_sale">
-            <option >card-badge card-badge-new </option>
-            <option>card-badge card-badge-sale</option>
-            <option>card-badge card-badge-rec</option>
-        </select>
-        <select class="form-control" name="product_sale_name">
-            <option >Yeni</option>
-            <option>Endirim</option>
-            <option>Tövsiyyə</option>
+        <select class="form-control" name="product_status">
+            <!-- <option value="" selected></option>
+            <option value="" > Yeni</option>
+            <option value="card-badge card-badge-sale">Endirimdə</option>
+            <option value="card-badge card-badge-rec">Tövsiyyə olunan</option> -->
+            <option value="simple" selected></option>
+            <option value="new" > Yeni</option>
+            <option value="sale">Endirimdə</option>
+            <option value="rec">Tövsiyyə olunan</option>
         </select>
         <label for="ccmonth" style="margin-top:10px">Məhsulun şəkli</label>
         <input type="file" name="product_img" class="form-control my-2" placeholder="Məhsulun şəkli">

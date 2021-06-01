@@ -57,7 +57,13 @@ def edit_news(id):
         selected_news.post_time=request.form["post_time"]
         selected_news.post_info=request.form["post_info"]
         selected_news.post_description=request.form["post_description"]
-        selected_news.post_img=request.form["post_img"]
+        file=request.files['post_img']
+        filename=file.filename
+        title=secure_filename(request.form['post_title'])
+        file_extention=filename.split(".")[-1]
+        filename=title+'.'+file_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
+        selected_news.post_img=filename
         db.session.commit()
         return redirect('/admin/news')
     adminLoginStat = request.cookies.get('adminLoginStatus')

@@ -3,7 +3,7 @@
 {% if selected_news %}
 <section class="update-news">
   <h2>"{{selected_news.post_title}}" adlı xəbəri dəyişdir</h2>
-  <form action="/admin/news/edit/{{selected_news.id}}" method="POST">
+  <form action="/admin/news/edit/{{selected_news.id}}" method="POST" enctype="multipart/form-data">
   <input type="text"  class="form-control" name="post_title" value="{{selected_news.post_title}}" placeholder="Xəbərin başlığını dəyişmək">
   <input type="date" name="post_time" class="form-control my-2" placeholder="Xəbərin zamanı" value="{{selected_news.post_time}}">
   <div class="form-group col-sm-4">

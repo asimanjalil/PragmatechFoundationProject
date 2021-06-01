@@ -1,3 +1,4 @@
+<title>{{Categories.query.filter_by(id=selected_category.id).first().categories_name}}</title>
 {% extends "app/base.html" %}
 
 
@@ -32,8 +33,7 @@
                                 <div class="d-none d-lg-block">
                                     <ul class="shop-sorting-item list-style-none orderby-list hl-list">
                                         <li class="active"><a class="hover-link" href="#!"
-                                                data-title="Popularity"><span>Populyarlığa görə</span></a></li>
-                                        <li><a href="#!" class="hover-link" data-title="Latest"><span>Tarixə
+                                                data-title="Popularity"><span>Tarixə
                                                     görə</span></a></li>
                                         <li><a href="#!" class="hover-link" data-title="Low price first"><span>Min
                                                     qiymət</span></a></li>
@@ -45,9 +45,10 @@
                                     <div class="form-field form-field-small form-field-m0 focus">
                                         <div class="select">
                                             <select name="orderby" class="shop-orderby" aria-label="Shop order">
-                                                <option value="popularity" selected="selected">Populyarlığa görə
+                                                <option value="popularity" selected="selected">Tarixə
+                                                    görə
                                                 </option>
-                                                <option value="rating">Tarixə görə</option>
+                                                
                                                 <option value="date">Min qiymət</option>
                                                 <option value="price">Max qiymət</option>
                                             </select>
@@ -63,22 +64,45 @@
                                 <div class="sidebar-item sidebar-item-margin sidebar-item-style">
                                     <p class="sidebar-item-title item-heading">Məhsullarımız</p>
                                     <ul class="sidebar-cat hl-list sidebar-cat-tree">
-                                        
-                                        {% for category in categories %}
+                                     {% for category in categories %}
                                         <li class="sidebar-cat-item sidebar-cat-item-has-child ">
-                                            <a href="/products/category/" class="sidebar-cat-link hover-link"
+                                            <a href="#!" class="sidebar-cat-link hover-link"
                                                 data-title="engine_transmission_oils">
                                                 <span><strong>{{category.categories_name}}</strong></span>
                                                 <i class="material-icons md-22 sidebar-cat-icon">chevron_right</i>
                                             </a>
+                                 
+                                            
+                                            
+                                           
                                             <ul style="display: none;">
-                                                <!-- <li><a href="/products/category/{{product_category}}" class="hover-link"
-                                                        data-title="Opet"><span>Opet</span></a></li> -->
+                                          
+                                              
+                                                {% for    brand in Brands.query.all() %}
                                                 
+
+                                               
+                                              
+                                                    
+                                                {% if  Products.query.filter(Products.category_id==category.id,Products.brand_id==brand.id).first()
+                                                %}
+                                                <li><a href="/brand/{{brand.id}}" class="hover-link"
+                                                    data-title="{{brand.brands_name}}"><span>{{brand.brands_name}}</span></a></li>
+                                                {% endif %}
+
+                                              
+
+
+
+                                          
+                                                
+                                                
+                                                        {% endfor %}
                                             </ul>
+                                    
+                                           
                                         </li>
                                         {% endfor %}
-                                        
 
                                     </ul>
                                 </div>
@@ -100,23 +124,31 @@
                                     <!-- Begin card -->
                                     <div class="item-style card">
                                         <header class="card-header">
-                                            <a href="/products_ext/{{product.id}}" class="card-image">
+                                            <a href="products_ext/{{product.id}}" class="card-image">
                                                 <img data-src="" class="lazy"
                                                     src="/static/uploads/{{product.product_img}}" alt=""
                                                     data-loaded="true">
                                             </a>
                                             <div class="card-badges">
-                                                <div class="{{product.product_sale}}">{{product.product_sale_name}}</div>
+                                                {% if product.product_status=="new" %}
+                                                <div class="card-badge card-badge-new">Yeni</div>
+                                                
+                                                {% elif product.product_status=="rec"  %}
+                                                <div class="card-badge card-badge-rec">Tövsiyyə</div>
+                                                {% elif  product.product_status=="sale" %}
+                                                <div class="card-badge card-badge-sale">Endirim</div>
+                                                {% else %}
+
+                                                {% endif %}
+                                               
                                             </div>
                                         </header>
-                                        <div class="card-info">
-                                            {% for category in categories [:1] %}
+                                        <div class="card-info"> 
                                             <div class="card-posted-in" title="{{Categories.query.filter_by(id=product.category_id).first().categories_name}}">
                                                 <a href="/category/{{product.category_id}}"><span >{{Categories.query.filter_by(id=product.category_id).first().categories_name}}</span></a>
                                             </div>
-                                            {% endfor %}
                                             <h3 class="item-heading card-title">
-                                                <a href="/products_ext/{{product.id}}" title="{{product.product_name}}">{{product.product_name}}</a>
+                                                <a href="products_ext/{{product.id}}" title="{{product.product_name}}">{{product.product_name}}</a>
                                             </h3>
                                             <div class="card-prices">
                                                 <div class="card-price">{{product.product_price}}</div>
