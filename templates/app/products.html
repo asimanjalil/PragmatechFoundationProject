@@ -67,7 +67,7 @@
                                         {% for category in categories %}
                                         <li class="sidebar-cat-item sidebar-cat-item-has-child ">
                                             <a href="#!" class="sidebar-cat-link hover-link"
-                                                data-title="engine_transmission_oils">
+                                                data-title="{{category.categories_name}}">
                                                 <span><strong>{{category.categories_name}}</strong></span>
                                                 <i class="material-icons md-22 sidebar-cat-icon">chevron_right</i>
                                             </a>
@@ -78,12 +78,12 @@
                                             <ul style="display: none;">
                                           
                                               
-                                                {% for    brand in Brands.query.all() %}
+                                                {% for brand in Brands.query.all() %}
                                                 
 
                                                
                                               
-                                                    
+ 
                                                 {% if  Products.query.filter(Products.category_id==category.id,Products.brand_id==brand.id).first()
                                                 %}
                                                 <li><a href="/brand/{{brand.id}}" class="hover-link"

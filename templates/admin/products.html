@@ -29,10 +29,6 @@
     <div class="form-group col-sm-4">
         <label for="ccmonth">Endirim məlumatı</label>
         <select class="form-control" name="product_status">
-            <!-- <option value="" selected></option>
-            <option value="" > Yeni</option>
-            <option value="card-badge card-badge-sale">Endirimdə</option>
-            <option value="card-badge card-badge-rec">Tövsiyyə olunan</option> -->
             <option value="simple" selected></option>
             <option value="new" > Yeni</option>
             <option value="sale">Endirimdə</option>
@@ -49,6 +45,7 @@
                {% endfor %}
             </select>
             <select class="form-control" name="product_brand">
+                <optgroup label="Mühərrik və transmissiya yağları" disabled></optgroup>
                 {% for brand  in brands %}
                 <option value="{{brand.id}}">{{brand.brands_name}}</option>
 
