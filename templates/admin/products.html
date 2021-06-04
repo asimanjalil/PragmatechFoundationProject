@@ -58,11 +58,11 @@
                                                     {% endfor %}
                                                 </optgroup>
                                                            
-                                                            {% if loop.index==(categories|length)-1 %}
+                                                            {% if loop.index==(categories|length) %}
               
                                                             <optgroup label="Digər">
                                                               {% for brand in Brands.query.all() %}
-                                                              {% if  Products.query.filter(Products.category_id!=category.id,Products.brand_id!=brand.id).first()
+                                                              {% if  brand.products|length==0
                                                                 %}
                                                                     <option value="{{brand.id}}">{{brand.brands_name}}</option>
                                                                 {% endif %}
