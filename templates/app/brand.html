@@ -111,10 +111,10 @@
                         <div class="col-lg-9 col-12">
                             <!-- Begin catalog -->
                             <div class="row gutters-20 catalog">
-                                {% if Products.query.filter_by(category_id=selected_category.id).first()%}
+                                {% if Products.query.filter_by(category_id=selected_brand.id).first()%}
                                
                                
-                                {% for product in Products.query.filter_by(category_id=selected_category.id) %}
+                                {% for product in Products.query.filter_by(category_id=selected_brand.id) %}
              
                                 
                                

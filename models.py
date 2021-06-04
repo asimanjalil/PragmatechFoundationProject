@@ -29,7 +29,7 @@ class Products(db.Model):
     brand_id=db.Column(db.Integer,db.ForeignKey('brands.id'))
     product_img=db.Column(db.String(50))
     product_name=db.Column(db.String(50))
-    product_price=db.Column(db.String(50))
+    product_price=db.Column(db.Float)
     product_simple_description=db.Column(db.Text)
     product_details_description=db.Column(db.Text)
     product_old_price=db.Column(db.String(50))

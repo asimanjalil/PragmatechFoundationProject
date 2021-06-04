@@ -32,12 +32,12 @@
                             <div class="shop-sorting-items justify-content-end">
                                 <div class="d-none d-lg-block">
                                     <ul class="shop-sorting-item list-style-none orderby-list hl-list">
-                                        <li class="active"><a class="hover-link" href="#!"
+                                        <li class="hover-link"><a class="hover-link" href="/products"
                                                 data-title="Popularity"><span>Tarixə
                                                     görə</span></a></li>
-                                        <li><a href="#!" class="hover-link" data-title="Low price first"><span>Min
+                                        <li><a href="/products/min" class="hover-link" data-title="Low price first"><span>Min
                                                     qiymət</span></a></li>
-                                        <li><a href="#!" class="hover-link" data-title="High price first"><span>Max
+                                        <li><a href="/products/max" class="hover-link" data-title="High price first"><span>Max
                                                     qiymət</span></a></li>
                                     </ul>
                                 </div>
@@ -147,7 +147,7 @@
                                                 <a href="products_ext/{{product.id}}" title="{{product.product_name}}">{{product.product_name}}</a>
                                             </h3>
                                             <div class="card-prices">
-                                                <div class="card-price">{{product.product_price}}</div>
+                                                <div class="card-price">{{product.product_price}} AZN</div>
                                             </div>
                                         </div>
                                     </div><!-- End card -->
@@ -165,10 +165,10 @@
                                                 class="pagination-item-arrow pagination-item-arrow-prev pagination-item-disabled">
                                                 <a href="#!"><i class="material-icons md-24">chevron_left</i></a>
                                             </li>
-                                            <li class="active"><a href="#!">1</a></li>
-                                            <li><a href="#!">2</a></li>
-                                            <li><a href="#!">3</a></li>
-                                            <li><a href="#!">4</a></li>
+                                            <li class="active"><a href="#!" active-pag="1">1</a></li>
+                                            <li><a href="#!"active-pag="11">2</a></li>
+                                            <li><a href="#!"active-pag="21">3</a></li>
+                                            <li><a href="#!"active-pag="31">4</a></li>
                                             <li class="pagination-item-arrow pagination-item-arrow-next"><a href="#!"><i
                                                         class="material-icons md-24">chevron_right</i></a></li>
                                         </ul>
@@ -180,6 +180,23 @@
                 </div>
             </div>
         </div>
-
-        </div>
+    </div>
+    <script src="../../static/app/js/jquery_003.js"></script>
+    <script>
+        $(".pagination-list a").click(function(){
+            var pagnr = $(this).attr("active-pag");
+            $.ajax({
+                type : 'POST',
+                url : "{{url_for('test')}}",
+                contentType: 'application/json;charset=UTF-8',
+                data : {'data':pagnr},
+                succes: function(){
+                    alert();
+                },
+                error: function(abc){
+                    document.write(abc.products);
+                }
+            });
+        })
+    </script>
         {% endblock %}

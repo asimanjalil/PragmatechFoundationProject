@@ -1,6 +1,7 @@
 from run import app
 from flask import render_template,redirect,request
 from models import *
+from sqlalchemy import desc
 @app.context_processor
 def inject_user():
     return dict(categories=Categories.query.all(),brands=Brands.query.all(),Brands=Brands,Products=Products)
@@ -65,8 +66,29 @@ def category(id):
     selected_category=Categories.query.get(id)
     return render_template('app/category.html',Products=Products,selected_category=selected_category,Categories=Categories)
 
-app.route('/brand/<int:id>')
+@app.route('/brand/<int:id>')
 def brand(id):
     from models import Products
     selected_brand=Brands.query.get(id)
-    return render_template('app/brand.html',Products=Products,selected_brand=selected_brand,Categories=Categories)
+    return render_template('app/brand.html',Products=Products,selected_brand=selected_brand,Categories=Categories,Brands=Brands)
+
+@app.route("/products/min")
+def product_min():
+    products=Products.query.order_by(Products.product_price)
+    return render_template('app/products.html',products=products,Categories=Categories,Products=Products)
+
+@app.route("/products/max")
+def product_max():
+    products=Products.query.order_by(desc(Products.product_price))
+    return render_template('app/products.html',products=products,Categories=Categories,Products=Products)
+
+@app.route('/products/', methods=['POST'])
+def test():
+    per_page = 10
+    page = request.json['data']
+    products = Products.query.order_by(Products.time.desc()).paginate(page,per_page,error_out=False)
+    return render_template('products.html',products=products)
+    
+
+
+

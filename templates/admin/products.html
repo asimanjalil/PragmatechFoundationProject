@@ -17,7 +17,7 @@
         <input type="file" name="product_img" class="form-control my-2" placeholder="Məhsulun şəkli" value="{{selected_products.product_img}}">
     </div>
    <input type="text"  class="form-control" name="product_name" value="{{selected_products.product_name}}" placeholder="Məhsulun adını dəyişmək">
-   <input class="form-control my-2" name="product_price" type="text" placeholder="Endirimli qiymət" value="{{selected_products.product_price}}">
+   <input class="form-control my-2" name="product_price" type="number" placeholder="Endirimli qiymət" value="{{selected_products.product_price}}">
    <input class="form-control my-2" name="product_old_price" type="text" placeholder="Qiymət" value="{{selected_products.product_old_price}}">
    <textarea name="product_simple_description" class='form-control my-2' cols="30" rows="3" placeholder="Məhsulun ilkin məlumatı">{{selected_products.product_simple_description}}</textarea>
    <textarea name="product_details_description" class='form-control my-2' cols="30" rows="5" placeholder="Məhsulun ətraflı məlumatı">{{selected_products.product_details_description}}</textarea>
@@ -45,13 +45,34 @@
                {% endfor %}
             </select>
             <select class="form-control" name="product_brand">
-                <optgroup label="Mühərrik və transmissiya yağları" disabled></optgroup>
-                {% for brand  in brands %}
-                <option value="{{brand.id}}">{{brand.brands_name}}</option>
-
-                {% endfor %}
+                {% for category in categories %}
+                {% if loop.index==(categories|length)-1 %}
+                
+                {% endif %}
+                <optgroup label="{{category.categories_name}}">
+                {% for brand in Brands.query.all() %}
+                                                    {% if  Products.query.filter(Products.category_id==category.id,Products.brand_id==brand.id).first()
+                                                    %}
+                                                        <option value="{{brand.id}}">{{brand.brands_name}}</option>
+                                                    {% endif %}   
+                                                    {% endfor %}
+                                                </optgroup>
+                                                           
+                                                            {% if loop.index==(categories|length)-1 %}
               
-               </select>
+                                                            <optgroup label="Digər">
+                                                              {% for brand in Brands.query.all() %}
+                                                              {% if  Products.query.filter(Products.category_id!=category.id,Products.brand_id!=brand.id).first()
+                                                                %}
+                                                                    <option value="{{brand.id}}">{{brand.brands_name}}</option>
+                                                                {% endif %}
+                                                                {% endfor %}
+                                                            </optgroup>
+                                                            
+                                                            {% endif %}
+                    
+                    {% endfor %}
+                   </select>
             <input type="text" name="product_name" class="form-control my-2" placeholder="Məhsulun adı">
             <input class="form-control my-2" name="product_price" type="text" placeholder="Endirimli qiymət">
             <input class="form-control my-2" name="product_old_price" type="text" placeholder="Qiymət">

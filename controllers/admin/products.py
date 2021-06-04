@@ -77,3 +77,4 @@ def edit_products(id):
         return render_template("admin/products.html",product=products,selected_products=selected_products)
     else:
         return redirect(url_for('login'))
+
