@@ -115,7 +115,7 @@
                         <div class="col-lg-9 col-12">
                             <!-- Begin catalog -->
                             <div class="row gutters-20 catalog">
-                                {% for product in products %}
+                                {% for product in products.items %}
                                 <div class="col-lg-3 col-md-4 col-sm-4 col-6 item">
                                     <!-- Begin card -->
                                     <div class="item-style card">
@@ -158,21 +158,66 @@
                             <div class="row">
                                 <div class="col-12">
                                     <br>
-                                    <!-- Begin pagination -->
-                                    <nav class="pagination">
-                                        <ul class="pagination-list">
-                                            <li
-                                                class="pagination-item-arrow pagination-item-arrow-prev pagination-item-disabled">
-                                                <a href="#!"><i class="material-icons md-24">chevron_left</i></a>
-                                            </li>
-                                            <li class="active"><a href="#!" active-pag="1">1</a></li>
-                                            <li><a href="#!"active-pag="11">2</a></li>
-                                            <li><a href="#!"active-pag="21">3</a></li>
-                                            <li><a href="#!"active-pag="31">4</a></li>
-                                            <li class="pagination-item-arrow pagination-item-arrow-next"><a href="#!"><i
-                                                        class="material-icons md-24">chevron_right</i></a></li>
-                                        </ul>
-                                    </nav><!-- End pagination -->
+{#                                    <!-- Begin pagination -->#}
+{#                                    <nav class="pagination">#}
+{#                                        <ul class="pagination-list">#}
+{#                                            <li#}
+{#                                                class="pagination-item-arrow pagination-item-arrow-prev pagination-item-disabled">#}
+{#                                                <a href="#!"><i class="material-icons md-24">chevron_left</i></a>#}
+{#                                            </li>#}
+{#                                            <li class="active"><a href="#!" active-pag="1">1</a></li>#}
+{#                                            <li><a href="#!"active-pag="11">2</a></li>#}
+{#                                            <li><a href="#!"active-pag="21">3</a></li>#}
+{#                                            <li><a href="#!"active-pag="31">4</a></li>#}
+{#                                            <li class="pagination-item-arrow pagination-item-arrow-next"><a href="#!"><i#}
+{#                                                        class="material-icons md-24">chevron_right</i></a></li>#}
+{#                                        </ul>#}
+{#                                    </nav><!-- End pagination -->#}
+{#                                    {% if is_paginated %}#}
+{#                                    <div class="row">#}
+{#                                        <div class="col-lg-12">#}
+{#                                            <div class="d-flex align-items-center justify-content-center"#}
+{#                                                 aria-label="stores-pagination">#}
+{#                                                <ul class="pagination">#}
+{#                                                    <!-- First condition -->#}
+{#                                                    {% if page_obj.has_previous %}#}
+{#                                                        <li class="page-item">#}
+{#                                                        href="{% url 'core:shops' %}?page={{ page_obj.previous_page_number }}&country={{filter_country}}"#}
+{#                                                            <a class="page-link" href="{{ url_for('products_index') }}"  aria-label="Previous">#}
+{#                                                                <img src="{{url_for('static/uploads', filename='previous.svg')}}" alt="previous">#}
+{#                                                            </a>#}
+{#                                                        </li>#}
+{#                                                    {% endif %}#}
+{##}
+{#                                                    {% for page_number in page_range %}#}
+{#                                                        <li class="page-item {% if page_obj.number == page_index %} active {% endif %}"><a class="page-link"  href="{{ url_for('products_index') }}">{{page_number}}</a></li>#}
+{#                                                    {% endfor %}#}
+{##}
+{#                                                    {% if page_obj.has_next %}#}
+{#                                                        <li class="page-item">#}
+{#                                                            <a class="page-link"  href="{{ url_for('products_index') }}"  aria-label="Next">#}
+{#                                                                <img src="{{url_for('static/uploads', filename='next.svg')}}" alt="previous">#}
+{#                                                            </a>#}
+{#                                                        </li>#}
+{#                                                    {% endif %}#}
+{#                                                </ul>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    {% endif %}#}
+                                {% for page_num in products.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                                 {% if page_num %}
+                                     {% if products.page == page_num %}
+                                       <a class="btn btn-info mb-4" href="{{ url_for('products_index', page=page_num) }}">{{ page_num }}</a>
+                                     {% else %}
+                                         <a class="btn btn-outline-info mb-4" href="{{ url_for('products_index', page=page_num) }}">{{ page_num }}</a>
+                                     {% endif %}
+                                     {% else %}
+                                        ...
+                                     {% endif %}
+                                 {% endfor %}
+
+
                                 </div>
                             </div>
                         </div>
@@ -181,22 +226,33 @@
             </div>
         </div>
     </div>
-    <script src="../../static/app/js/jquery_003.js"></script>
+{#    <script src="../../static/app/js/jquery_003.js"></script>#}
     <script>
-        $(".pagination-list a").click(function(){
-            var pagnr = $(this).attr("active-pag");
-            $.ajax({
-                type : 'POST',
-                url : "{{url_for('test')}}",
-                contentType: 'application/json;charset=UTF-8',
-                data : {'data':pagnr},
-                succes: function(){
-                    alert();
-                },
-                error: function(abc){
-                    document.write(abc.products);
-                }
-            });
-        })
+
+      $(document).ready(function() {
+
+    $(document).on('click', '.page-link', function(event) {
+
+      var link = $(this).attr('href');
+      searchResults(link);
+      event.preventDefault();
+
+  });
+});
+
+  var searchResults = function(link) {
+      req=$.ajax({
+        data : {
+          parameter1: $('input[name="parameter1"]').val()
+        },
+        type: 'POST',
+        url: link
+
+      });
+      req.done(function(data) {
+        $('#products').html(data);
+      })
+  };
+
     </script>
         {% endblock %}

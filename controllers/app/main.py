@@ -17,11 +17,18 @@ def about_index():
     posts=Post.query.all()
     return render_template('app/about.html',posts=posts)
 
-@app.route('/products')
+
+@app.route('/products',methods=['GET','POST'] )
 def products_index():
     from models import Products
-    products=Products.query.all()
-    return render_template('app/products.html',products=products,Categories=Categories,Products=Products)
+    # products=Products.query.all()
+    page = request.args.get('page')
+    page = 1 if page == None else int(page)
+    products = Products.query.paginate(page=page, per_page= 12)
+
+    return render_template('app/products.html',products=products,Categories=Categories)
+
+
 
 @app.route('/products_ext/<id>',methods=['GET','POST'] )
 def products_ext_index(id):
